@@ -32,7 +32,12 @@
   .nav button:hover { background:#eef3f8; }
   .nav button:disabled { opacity:.35; cursor:default; }
   .nav label { user-select:none; }
-  #monthLabel { min-width:120px; text-align:center; font-weight:700; font-size:16px; }
+  #monthSelect {
+    min-width:120px; text-align:center; font-weight:700; font-size:16px;
+    border:0; background:transparent; color:inherit; cursor:pointer;
+    padding:2px 4px; appearance:auto; -webkit-appearance:menulist;
+  }
+  #monthSelect:focus { outline:1px solid var(--line); border-radius:4px; }
   .filters { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin-left:auto; }
   .filters label { user-select:none; }
   .filters label.on-us { border-color:var(--us); color:var(--us); }
@@ -77,10 +82,9 @@
   <a class="page-link" href="index.html">列表页</a>
   <div class="nav">
     <button type="button" id="prev">‹</button>
-    <div id="monthLabel"></div>
+    <select id="monthSelect" aria-label="选择月份"></select>
     <button type="button" id="next">›</button>
     <button type="button" id="todayBtn">今天</button>
-    <label><input type="checkbox" id="allMonths"> 全部月份</label>
   </div>
   <div class="filters">
     <label class="on-us"><input type="checkbox" data-c="US" checked> 美国</label>
@@ -124,12 +128,44 @@ function visible(ev){
   if (document.getElementById("modeInd").checked && ev.type !== "ag") return false;
   return true;
 }
+function ymKey(d){ return d.getFullYear()+"-"+pad(d.getMonth()+1); }
+function ymLabel(ym){ const [y,mo]=ym.split("-"); return y+"年"+Number(mo)+"月"; }
+function availableMonths(){
+  return [...new Set(EVENTS.map(ev => ev.date.slice(0,7)))].sort();
+}
+function ensureMonthOption(ym){
+  const sel = document.getElementById("monthSelect");
+  if ([...sel.options].some(o => o.value === ym)) return;
+  const opt = document.createElement("option");
+  opt.value = ym;
+  opt.textContent = ymLabel(ym);
+  const months = [...sel.options].map(o => o.value).concat([ym]).sort();
+  sel.innerHTML = "";
+  months.forEach(m => {
+    const o = document.createElement("option");
+    o.value = m; o.textContent = ymLabel(m); sel.appendChild(o);
+  });
+}
+function fillMonthSelect(){
+  const sel = document.getElementById("monthSelect");
+  const months = availableMonths();
+  const cur = ymKey(view);
+  sel.innerHTML = "";
+  const all = months.includes(cur) ? months : [...months, cur].sort();
+  all.forEach(ym => {
+    const opt = document.createElement("option");
+    opt.value = ym; opt.textContent = ymLabel(ym); sel.appendChild(opt);
+  });
+  sel.value = cur;
+}
+function syncMonthSelect(){
+  const cur = ymKey(view);
+  ensureMonthOption(cur);
+  document.getElementById("monthSelect").value = cur;
+}
 function render(){
-  const allM = document.getElementById("allMonths").checked;
   const y = view.getFullYear(), m = view.getMonth();
-  document.getElementById("monthLabel").textContent = allM ? "全部月份" : (y+"年"+(m+1)+"月");
-  document.getElementById("prev").disabled = allM;
-  document.getElementById("next").disabled = allM;
+  syncMonthSelect();
   const first = new Date(y, m, 1);
   const startOffset = (first.getDay() + 6) % 7; // Monday=0
   const start = new Date(y, m, 1 - startOffset);
@@ -195,11 +231,16 @@ function shiftMonth(delta){
   view = new Date(view.getFullYear(), view.getMonth()+delta, 1);
   render();
 }
-document.getElementById("prev").onclick = () => { if (!document.getElementById("allMonths").checked) shiftMonth(-1); };
-document.getElementById("next").onclick = () => { if (!document.getElementById("allMonths").checked) shiftMonth(1); };
-document.getElementById("todayBtn").onclick = () => { view = new Date(AS_OF+"T00:00:00"); document.getElementById("allMonths").checked = false; render(); };
-document.getElementById("allMonths").addEventListener("change", render);
+document.getElementById("prev").onclick = () => shiftMonth(-1);
+document.getElementById("next").onclick = () => shiftMonth(1);
+document.getElementById("todayBtn").onclick = () => { view = new Date(AS_OF+"T00:00:00"); render(); };
+document.getElementById("monthSelect").addEventListener("change", (e) => {
+  const [y, mo] = e.target.value.split("-").map(Number);
+  view = new Date(y, mo-1, 1);
+  render();
+});
 document.querySelectorAll(".filters input").forEach(i => i.addEventListener("change", render));
+fillMonthSelect();
 render();
 </script>
 </body>
