@@ -25,11 +25,13 @@
   }
   .page-link:hover { background:#a93226; color:#fff; }
   .nav { display:flex; align-items:center; gap:8px; }
-  .nav button, .filters button, .filters label {
+  .nav button, .nav label, .filters button, .filters label {
     border:1px solid var(--line); background:#fff; border-radius:6px;
     padding:4px 10px; cursor:pointer; font-size:13px;
   }
   .nav button:hover { background:#eef3f8; }
+  .nav button:disabled { opacity:.35; cursor:default; }
+  .nav label { user-select:none; }
   #monthLabel { min-width:120px; text-align:center; font-weight:700; font-size:16px; }
   .filters { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin-left:auto; }
   .filters label { user-select:none; }
@@ -78,6 +80,7 @@
     <div id="monthLabel"></div>
     <button type="button" id="next">›</button>
     <button type="button" id="todayBtn">今天</button>
+    <label><input type="checkbox" id="allMonths"> 全部月份</label>
   </div>
   <div class="filters">
     <label class="on-us"><input type="checkbox" data-c="US" checked> 美国</label>
@@ -85,9 +88,9 @@
     <label class="on-br"><input type="checkbox" data-c="BR" checked> 巴西</label>
     <label class="on-ar"><input type="checkbox" data-c="AR" checked> 阿根廷</label>
     <label class="on-gl"><input type="checkbox" data-c="GLOBAL" checked> 中美/全球</label>
-    <label><input type="checkbox" id="onlyA"> 仅 A 级</label>
-    <label><input type="checkbox" id="onlyMeet"> 仅会议/大选</label>
-    <label><input type="checkbox" id="onlyInd"> 产业</label>
+    <label><input type="radio" name="typeMode" id="modeAll" checked> 全部</label>
+    <label><input type="radio" name="typeMode" id="modeFin"> 仅财经</label>
+    <label><input type="radio" name="typeMode" id="modeInd"> 仅产业</label>
     <span class="legend">北京时间 · 点格子看详情</span>
   </div>
 </header>
@@ -117,14 +120,16 @@ function countriesOn(){
 }
 function visible(ev){
   if (!countriesOn().includes(ev.country)) return false;
-  if (document.getElementById("onlyA").checked && ev.tier !== "A") return false;
-  if (document.getElementById("onlyMeet").checked && ev.type !== "geopolitics" && ev.type !== "election") return false;
-  if (document.getElementById("onlyInd").checked && ev.type !== "ag") return false;
+  if (document.getElementById("modeFin").checked && ev.type === "ag") return false;
+  if (document.getElementById("modeInd").checked && ev.type !== "ag") return false;
   return true;
 }
 function render(){
+  const allM = document.getElementById("allMonths").checked;
   const y = view.getFullYear(), m = view.getMonth();
-  document.getElementById("monthLabel").textContent = y+"年"+(m+1)+"月";
+  document.getElementById("monthLabel").textContent = allM ? "全部月份" : (y+"年"+(m+1)+"月");
+  document.getElementById("prev").disabled = allM;
+  document.getElementById("next").disabled = allM;
   const first = new Date(y, m, 1);
   const startOffset = (first.getDay() + 6) % 7; // Monday=0
   const start = new Date(y, m, 1 - startOffset);
@@ -190,9 +195,10 @@ function shiftMonth(delta){
   view = new Date(view.getFullYear(), view.getMonth()+delta, 1);
   render();
 }
-document.getElementById("prev").onclick = () => shiftMonth(-1);
-document.getElementById("next").onclick = () => shiftMonth(1);
-document.getElementById("todayBtn").onclick = () => { view = new Date(AS_OF+"T00:00:00"); render(); };
+document.getElementById("prev").onclick = () => { if (!document.getElementById("allMonths").checked) shiftMonth(-1); };
+document.getElementById("next").onclick = () => { if (!document.getElementById("allMonths").checked) shiftMonth(1); };
+document.getElementById("todayBtn").onclick = () => { view = new Date(AS_OF+"T00:00:00"); document.getElementById("allMonths").checked = false; render(); };
+document.getElementById("allMonths").addEventListener("change", render);
 document.querySelectorAll(".filters input").forEach(i => i.addEventListener("change", render));
 render();
 </script>
