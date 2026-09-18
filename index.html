@@ -41,15 +41,13 @@
   #monthSelect:focus { outline:1px solid var(--line); border-radius:4px; }
   .filters { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin-left:auto; }
   .filters label { user-select:none; }
-  .filters label.on-us { border-color:var(--us); color:var(--us); }
-  .filters label.on-cn { border-color:var(--cn); color:var(--cn); }
-  .filters label.on-br { border-color:var(--br); color:var(--br); }
-  .filters label.on-ar { border-color:var(--ar); color:var(--ar); }
-  .filters label.on-ca { border-color:var(--ca); color:var(--ca); }
-  .filters label.on-au { border-color:var(--au); color:var(--au); }
-  .filters label.on-eu { border-color:var(--eu); color:var(--eu); }
-  .filters label.on-jp { border-color:var(--jp); color:var(--jp); }
-  .filters label.on-gl { border-color:var(--gl); color:var(--gl); }
+  #countrySelect {
+    min-width:100px; font-size:13px; font-weight:600;
+    border:1px solid var(--line); background:#fff; border-radius:6px;
+    padding:4px 8px; cursor:pointer; color:inherit;
+    appearance:auto; -webkit-appearance:menulist;
+  }
+  #countrySelect:focus { outline:1px solid var(--line); }
   .legend { font-size:12px; color:var(--muted); }
   .page { flex:1; min-height:0; display:flex; flex-direction:column; padding:16px 22px 20px; }
   .count { flex-shrink:0; }
@@ -95,15 +93,18 @@
     <button type="button" id="todayBtn">今天</button>
   </div>
   <div class="filters">
-    <label class="on-us"><input type="checkbox" data-c="US" checked> 美国</label>
-    <label class="on-cn"><input type="checkbox" data-c="CN" checked> 中国</label>
-    <label class="on-br"><input type="checkbox" data-c="BR" checked> 巴西</label>
-    <label class="on-ar"><input type="checkbox" data-c="AR" checked> 阿根廷</label>
-    <label class="on-ca"><input type="checkbox" data-c="CA" checked> 加拿大</label>
-    <label class="on-au"><input type="checkbox" data-c="AU" checked> 澳大利亚</label>
-    <label class="on-eu"><input type="checkbox" data-c="EU" checked> 欧盟</label>
-    <label class="on-jp"><input type="checkbox" data-c="JP" checked> 日本</label>
-    <label class="on-gl"><input type="checkbox" data-c="GLOBAL" checked> 中美/全球</label>
+    <select id="countrySelect" aria-label="选择国家">
+      <option value="ALL" selected>全部</option>
+      <option value="US">美国</option>
+      <option value="CN">中国</option>
+      <option value="BR">巴西</option>
+      <option value="AR">阿根廷</option>
+      <option value="CA">加拿大</option>
+      <option value="AU">澳大利亚</option>
+      <option value="EU">欧盟</option>
+      <option value="JP">日本</option>
+      <option value="GLOBAL">中美/全球</option>
+    </select>
     <label><input type="radio" name="typeMode" id="modeAll" checked> 全部</label>
     <label><input type="radio" name="typeMode" id="modeFin"> 仅财经</label>
     <label><input type="radio" name="typeMode" id="modeInd"> 仅产业</label>
@@ -139,11 +140,15 @@ let view = new Date(AS_OF + "T00:00:00");
 const WEEK = "日一二三四五六";
 function pad(n){ return String(n).padStart(2,"0"); }
 function countriesOn(){
-  return [...document.querySelectorAll(".filters input[data-c]")]
-    .filter(i => i.checked).map(i => i.dataset.c);
+  const v = document.getElementById("countrySelect").value;
+  return (!v || v === "ALL") ? null : v;
+}
+function passCountry(ev){
+  const sel = countriesOn();
+  return sel === null || ev.country === sel;
 }
 function visible(ev){
-  if (!countriesOn().includes(ev.country)) return false;
+  if (!passCountry(ev)) return false;
   if (document.getElementById("modeFin").checked && ev.type === "ag") return false;
   if (document.getElementById("modeInd").checked && ev.type !== "ag") return false;
   return true;
@@ -295,6 +300,7 @@ document.getElementById("monthSelect").addEventListener("change", (e) => {
   view = new Date(y, mo-1, 1);
   render();
 });
+document.getElementById("countrySelect").addEventListener("change", render);
 document.querySelectorAll(".filters input").forEach(i => i.addEventListener("change", render));
 fillMonthSelect();
 render();
