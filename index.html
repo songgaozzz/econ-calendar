@@ -50,13 +50,17 @@
   .page { flex:1; min-height:0; display:flex; flex-direction:column; padding:16px 22px 20px; }
   .count { flex-shrink:0; }
   .sheet { flex:1; min-height:0; background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:auto; }
-  table { width:100%; border-collapse:separate; border-spacing:0; font-size:14px; min-width:1100px; }
+  table { width:100%; border-collapse:separate; border-spacing:0; font-size:14px; min-width:1180px; }
   thead th {
     position:sticky; top:0; z-index:4; background:#1f4e79; color:#fff;
     font-weight:600; text-align:left; padding:10px 12px; white-space:nowrap;
     box-shadow:0 2px 0 #1f4e79;
   }
-  td { padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top; background:#fff; }
+  td { padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:middle; background:#fff; }
+  th.v, td.v { text-align:left; white-space:nowrap; vertical-align:middle; }
+  th.v-prev, td.v-prev, th.v-fcst, td.v-fcst { min-width:88px; max-width:140px; }
+  th.v-act, td.v-act { min-width:120px; max-width:220px; }
+  td.v-act.long { white-space:normal; line-height:1.35; }
   tr.day-row td { background:#eef3f8; font-weight:700; color:#1f4e79; font-size:14px; }
   tr.day-row.day-focus td {
     background:#dde7f2; outline:2px solid #1f4e79; outline-offset:-2px;
@@ -69,6 +73,7 @@
   .muted { color:var(--muted); font-size:12px; }
   .act-ok { color:#1e8449; font-weight:600; }
   .act-wait { color:#999; }
+  .unit { color:#888; font-weight:400; font-size:12px; margin-left:4px; }
   .src { color:#666; font-size:12px; max-width:280px; }
   .count { font-size:13px; color:var(--muted); margin:0 0 10px; }
 </style>
@@ -108,9 +113,9 @@
           <th>机构</th>
           <th>级别 / 类型</th>
           <th>报告期</th>
-          <th>前值</th>
-          <th>预期</th>
-          <th>实际</th>
+          <th class="v v-prev">前值</th>
+          <th class="v v-fcst">预期</th>
+          <th class="v v-act">实际</th>
           <th>来源</th>
         </tr>
       </thead>
@@ -136,6 +141,24 @@ function visible(ev){
 }
 function esc(s){
   return String(s==null?"":s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+function fmtVal(val, unit, opts){
+  opts = opts || {};
+  const raw = (val==null ? "" : String(val)).trim();
+  const u = (unit==null ? "" : String(unit)).trim();
+  if (!raw || raw==="——" || raw==="—") return "——";
+  const skipUnit = !u || u==="——" || u==="—" || u==="报告" || u==="合约";
+  const hasPctDigit = /\d.*%|%.*\d/.test(raw);
+  const hasUnitStr = !skipUnit && raw.indexOf(u) !== -1;
+  const statusLike = /已[公布召开发布举行交割]/.test(raw);
+  const descriptive = /m\/m|y\/y|bp|万|人|蒲|吨/.test(raw);
+  const mostlyNum = /^[+-]?[\d,]+(?:\.\d+)?(?:\s*[–—-]\s*[+-]?[\d,]+(?:\.\d+)?)?$/.test(raw);
+  let body = esc(raw);
+  if (opts.actualOk) body = '<span class="act-ok">'+body+"</span>";
+  if (skipUnit || hasPctDigit || hasUnitStr || statusLike || descriptive || !mostlyNum) {
+    return body;
+  }
+  return body + '<span class="unit">'+esc(u)+"</span>";
 }
 function scrollToFocusDay(){
   const el = document.querySelector("tr.day-row.day-focus");
@@ -219,7 +242,15 @@ function render(){
     }
     const tr = document.createElement("tr");
     tr.className = "ev-row";
-    const act = ev.actual ? '<span class="act-ok">'+esc(ev.actual)+"</span>" : '<span class="act-wait">待公布</span>';
+    const prevCell = fmtVal(ev.previous, ev.unit);
+    const fcstCell = fmtVal(ev.forecast, ev.unit);
+    let actCell, actLong = "";
+    if (ev.actual) {
+      actCell = fmtVal(ev.actual, ev.unit, {actualOk:true});
+      if (String(ev.actual).length > 28) actLong = " long";
+    } else {
+      actCell = '<span class="act-wait">待公布</span>';
+    }
     tr.innerHTML =
       "<td>"+esc(ev.date)+"</td>"+
       "<td>"+esc(ev.time)+"</td>"+
@@ -228,9 +259,9 @@ function render(){
       "<td>"+esc(ev.agency)+"</td>"+
       "<td>"+esc(ev.tier)+" · "+esc(ev.type_cn)+"</td>"+
       "<td>"+esc(ev.period||"—")+"</td>"+
-      "<td>"+esc(ev.previous||"—")+"</td>"+
-      "<td>"+esc(ev.forecast||"—")+"</td>"+
-      "<td>"+act+(ev.unit&&ev.actual?" "+esc(ev.unit):"")+"</td>"+
+      '<td class="v v-prev">'+prevCell+"</td>"+
+      '<td class="v v-fcst">'+fcstCell+"</td>"+
+      '<td class="v v-act'+actLong+'">'+actCell+"</td>"+
       '<td class="src">'+esc(ev.source||"—")+"</td>";
     tb.appendChild(tr);
   });

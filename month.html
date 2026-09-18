@@ -73,6 +73,8 @@
   .kv { font-size:13px; line-height:1.7; }
   .kv b { display:inline-block; min-width:3.2em; color:#555; font-weight:600; }
   .badge { display:inline-block; padding:1px 7px; border-radius:10px; font-size:11px; color:#fff; margin-right:4px; }
+  .unit { color:#888; font-weight:400; font-size:12px; margin-left:4px; }
+  .act-ok { color:#1e8449; font-weight:600; }
   .foot { font-size:11px; color:#999; margin-top:16px; }
 </style>
 </head>
@@ -198,22 +200,45 @@ function render(){
     grid.appendChild(cell);
   }
 }
+function esc(s){
+  return String(s==null?"":s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+function fmtVal(val, unit, opts){
+  opts = opts || {};
+  const raw = (val==null ? "" : String(val)).trim();
+  const u = (unit==null ? "" : String(unit)).trim();
+  if (!raw || raw==="——" || raw==="—") return "——";
+  const skipUnit = !u || u==="——" || u==="—" || u==="报告" || u==="合约";
+  const hasPctDigit = /\d.*%|%.*\d/.test(raw);
+  const hasUnitStr = !skipUnit && raw.indexOf(u) !== -1;
+  const statusLike = /已[公布召开发布举行交割]/.test(raw);
+  const descriptive = /m\/m|y\/y|bp|万|人|蒲|吨/.test(raw);
+  const mostlyNum = /^[+-]?[\d,]+(?:\.\d+)?(?:\s*[–—-]\s*[+-]?[\d,]+(?:\.\d+)?)?$/.test(raw);
+  let body = esc(raw);
+  if (opts.actualOk) body = '<span class="act-ok">'+body+"</span>";
+  if (skipUnit || hasPctDigit || hasUnitStr || statusLike || descriptive || !mostlyNum) {
+    return body;
+  }
+  return body + '<span class="unit">'+esc(u)+"</span>";
+}
 function show(ev, key){
-  const act = ev.actual || "待公布";
+  const prev = fmtVal(ev.previous, ev.unit);
+  const fcst = fmtVal(ev.forecast, ev.unit);
+  const act = ev.actual ? fmtVal(ev.actual, ev.unit, {actualOk:true}) : "待公布";
   document.getElementById("panel").innerHTML = `
-    <h2>${ev.title}</h2>
+    <h2>${esc(ev.title)}</h2>
     <div>
-      <span class="badge" style="background:${({US:'#1f4e79',CN:'#c0392b',BR:'#1e8449',AR:'#6c3483',GLOBAL:'#c45c26'})[ev.country]}">${ev.country_cn}</span>
-      <span class="badge" style="background:${ev.tier==='A'?'#b8860b':'#888'}">${ev.tier}级 · ${ev.type_cn}</span>
+      <span class="badge" style="background:${({US:'#1f4e79',CN:'#c0392b',BR:'#1e8449',AR:'#6c3483',GLOBAL:'#c45c26'})[ev.country]}">${esc(ev.country_cn)}</span>
+      <span class="badge" style="background:${ev.tier==='A'?'#b8860b':'#888'}">${esc(ev.tier)}级 · ${esc(ev.type_cn)}</span>
     </div>
     <div class="kv" style="margin-top:10px">
-      <div><b>日期</b>${ev.date} ${ev.time}（北京）</div>
-      <div><b>机构</b>${ev.agency}</div>
-      <div><b>报告期</b>${ev.period || "—"}</div>
-      <div><b>前值</b>${ev.previous || "—"}</div>
-      <div><b>预期</b>${ev.forecast || "—"}</div>
-      <div><b>实际</b>${act} ${ev.unit||""}</div>
-      <div><b>来源</b>${ev.source || "—"}</div>
+      <div><b>日期</b>${esc(ev.date)} ${esc(ev.time)}（北京）</div>
+      <div><b>机构</b>${esc(ev.agency)}</div>
+      <div><b>报告期</b>${esc(ev.period || "—")}</div>
+      <div><b>前值</b>${prev}</div>
+      <div><b>预期</b>${fcst}</div>
+      <div><b>实际</b>${act}</div>
+      <div><b>来源</b>${esc(ev.source || "—")}</div>
     </div>
     <p class="foot">同一天其它事件点格子即可切换。</p>
   `;
