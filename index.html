@@ -48,6 +48,11 @@
     appearance:auto; -webkit-appearance:menulist;
   }
   #countrySelect:focus { outline:1px solid var(--line); }
+  .sel-label {
+    font-size:13px; color:#555; margin-right:4px;
+    border:0 !important; background:transparent !important;
+    padding:0 !important; border-radius:0 !important; cursor:default;
+  }
   .legend { font-size:12px; color:var(--muted); }
   .page { flex:1; min-height:0; display:flex; flex-direction:column; padding:16px 22px 20px; }
   .count { flex-shrink:0; }
@@ -67,6 +72,9 @@
   tr.day-row.day-focus td {
     background:#dde7f2; outline:2px solid #1f4e79; outline-offset:-2px;
   }
+  .imp-high { color:#b8860b; font-weight:700; }
+  .imp-mid { color:#666; }
+  .imp-low { color:#999; }
   tr.ev-row:hover { background:#f7f9fc; }
   .dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:6px; vertical-align:middle; }
   .dot.US { background:var(--us); } .dot.CN { background:var(--cn); }
@@ -88,11 +96,13 @@
   <a class="page-link" href="month.html">月历页</a>
   <div class="nav">
     <button type="button" id="prev">‹</button>
+    <label class="sel-label" for="monthSelect">月份</label>
     <select id="monthSelect" aria-label="选择月份"></select>
     <button type="button" id="next">›</button>
     <button type="button" id="todayBtn">今天</button>
   </div>
   <div class="filters">
+    <label class="sel-label" for="countrySelect">国家</label>
     <select id="countrySelect" aria-label="选择国家">
       <option value="ALL" selected>全部</option>
       <option value="US">美国</option>
@@ -121,6 +131,7 @@
           <th>时间</th>
           <th>国家</th>
           <th>事件</th>
+          <th>重要程度</th>
           <th>机构</th>
           <th>报告期</th>
           <th class="v v-prev">前值</th>
@@ -176,15 +187,12 @@ function fmtVal(val, unit, opts){
 }
 function scrollToFocusDay(){
   const el = document.querySelector("tr.day-row.day-focus");
-  if (!el) return;
   const sheet = document.querySelector(".sheet");
-  if (sheet) {
-    // Place the day-row near the top of the scrollable sheet
-    const top = el.offsetTop - (sheet.querySelector("thead")?.offsetHeight || 0) - 4;
-    sheet.scrollTop = Math.max(0, top);
-  } else {
-    el.scrollIntoView({block:"start"});
-  }
+  if (!el || !sheet) return;
+  const er = el.getBoundingClientRect();
+  const sr = sheet.getBoundingClientRect();
+  const theadH = (sheet.querySelector("thead")?.getBoundingClientRect().height) || 0;
+  sheet.scrollTop += (er.top - sr.top) - theadH - 4;
 }
 function pickFocusDate(dayDates){
   if (!dayDates.length) return null;
@@ -235,7 +243,7 @@ function render(){
   const tb = document.getElementById("listBody");
   tb.innerHTML = "";
   if (!rows.length) {
-    tb.innerHTML = '<tr><td colspan="10" class="muted" style="padding:24px">本月无已筛选事件。</td></tr>';
+    tb.innerHTML = '<tr><td colspan="11" class="muted" style="padding:24px">本月无已筛选事件。</td></tr>';
     return;
   }
   let last = "";
@@ -248,7 +256,7 @@ function render(){
       trd.className = "day-row";
       trd.id = "day-" + ev.date;
       const td = document.createElement("td");
-      td.colSpan = 10;
+      td.colSpan = 11;
       const dt = new Date(ev.date+"T00:00:00");
       td.textContent = ev.date + "  周" + WEEK[dt.getDay()] + (ev.date===AS_OF ? "  · 今天" : "");
       trd.appendChild(td);
@@ -265,11 +273,14 @@ function render(){
     } else {
       actCell = '<span class="act-wait">待公布</span>';
     }
+    const impLabel = ev.tier==="A" ? "高" : ev.tier==="B" ? "中" : "低";
+    const impClass = ev.tier==="A" ? "imp-high" : ev.tier==="B" ? "imp-mid" : "imp-low";
     tr.innerHTML =
       "<td>"+esc(ev.date)+"</td>"+
       "<td>"+esc(ev.time)+"</td>"+
       '<td><span class="dot '+ev.country+'"></span>'+esc(ev.country_cn)+"</td>"+
       "<td><b>"+esc(ev.title)+"</b></td>"+
+      '<td class="'+impClass+'">'+impLabel+"</td>"+
       "<td>"+esc(ev.agency)+"</td>"+
       "<td>"+esc(ev.period||"—")+"</td>"+
       '<td class="v v-prev">'+prevCell+"</td>"+
@@ -283,7 +294,7 @@ function render(){
     const focusEl = document.getElementById("day-" + focusDate);
     if (focusEl) focusEl.classList.add("day-focus");
   }
-  requestAnimationFrame(() => scrollToFocusDay());
+  requestAnimationFrame(() => requestAnimationFrame(scrollToFocusDay));
 }
 document.getElementById("prev").onclick = () => {
   view = new Date(view.getFullYear(), view.getMonth()-1, 1); render();
@@ -304,6 +315,7 @@ document.getElementById("countrySelect").addEventListener("change", render);
 document.querySelectorAll(".filters input").forEach(i => i.addEventListener("change", render));
 fillMonthSelect();
 render();
+window.addEventListener("load", () => requestAnimationFrame(() => requestAnimationFrame(scrollToFocusDay)));
 </script>
 </body>
 </html>

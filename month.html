@@ -47,6 +47,11 @@
     appearance:auto; -webkit-appearance:menulist;
   }
   #countrySelect:focus { outline:1px solid var(--line); }
+  .sel-label {
+    font-size:13px; color:#555; margin-right:4px;
+    border:0 !important; background:transparent !important;
+    padding:0 !important; border-radius:0 !important; cursor:default;
+  }
   .legend { font-size:12px; color:var(--muted); }
   .wrap { display:grid; grid-template-columns: 1fr 320px; gap:12px; padding:12px 18px 24px; height:calc(100% - 62px); min-height:0; }
   @media (max-width: 960px) { .wrap { grid-template-columns:1fr; height:auto; } }
@@ -78,6 +83,9 @@
   .kv { font-size:13px; line-height:1.7; }
   .kv b { display:inline-block; min-width:3.2em; color:#555; font-weight:600; }
   .badge { display:inline-block; padding:1px 7px; border-radius:10px; font-size:11px; color:#fff; margin-right:4px; }
+  .badge.imp-high { background:#b8860b; }
+  .badge.imp-mid { background:#888; }
+  .badge.imp-low { background:#bbb; }
   .unit { color:#888; font-weight:400; font-size:12px; margin-left:4px; }
   .act-ok { color:#1e8449; font-weight:600; }
   .foot { font-size:11px; color:#999; margin-top:16px; }
@@ -89,11 +97,13 @@
   <a class="page-link" href="index.html">列表页</a>
   <div class="nav">
     <button type="button" id="prev">‹</button>
+    <label class="sel-label" for="monthSelect">月份</label>
     <select id="monthSelect" aria-label="选择月份"></select>
     <button type="button" id="next">›</button>
     <button type="button" id="todayBtn">今天</button>
   </div>
   <div class="filters">
+    <label class="sel-label" for="countrySelect">国家</label>
     <select id="countrySelect" aria-label="选择国家">
       <option value="ALL" selected>全部</option>
       <option value="US">美国</option>
@@ -245,6 +255,7 @@ function show(ev, key){
     <h2>${esc(ev.title)}</h2>
     <div>
       <span class="badge" style="background:${({US:'#1f4e79',CN:'#c0392b',BR:'#1e8449',AR:'#6c3483',CA:'#e74c3c',AU:'#f39c12',EU:'#2980b9',JP:'#8e44ad',GLOBAL:'#c45c26'})[ev.country]}">${esc(ev.country_cn)}</span>
+      <span class="badge ${ev.tier==="A"?"imp-high":ev.tier==="B"?"imp-mid":"imp-low"}">${ev.tier==="A"?"高":ev.tier==="B"?"中":"低"}</span>
     </div>
     <div class="kv" style="margin-top:10px">
       <div><b>日期</b>${esc(ev.date)} ${esc(ev.time)}（北京）</div>
