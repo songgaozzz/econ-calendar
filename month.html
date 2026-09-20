@@ -95,7 +95,7 @@
     padding:18px 18px 14px;
   }
   .modal-close {
-    position:absolute; top:8px; right:10px;
+    position:absolute; top:8px; right:10px; z-index:2;
     border:0; background:transparent; color:#666;
     font-size:22px; line-height:1; cursor:pointer;
     padding:4px 8px; border-radius:6px;
@@ -330,9 +330,12 @@ document.getElementById("monthSelect").addEventListener("change", (e) => {
 });
 document.getElementById("countrySelect").addEventListener("change", render);
 document.querySelectorAll(".filters input").forEach(i => i.addEventListener("change", render));
-document.getElementById("modal").addEventListener("click", (e) => {
-  if (e.target && e.target.getAttribute("data-close") === "1") closeModal();
+document.querySelector(".modal-close").addEventListener("click", (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  closeModal();
 });
+document.querySelector(".modal-backdrop").addEventListener("click", closeModal);
 document.querySelector(".modal-card").addEventListener("click", (e) => e.stopPropagation());
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && !document.getElementById("modal").hidden) closeModal();
