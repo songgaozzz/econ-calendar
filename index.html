@@ -193,7 +193,7 @@ function fmtVal(val, unit, opts){
   return body + '<span class="unit">'+esc(u)+"</span>";
 }
 function scrollToFocusDay(){
-  const el = document.querySelector("tr.day-row.day-focus");
+  const el = document.querySelector("tr.day-row[data-scroll-target]") || document.querySelector("tr.day-row.day-focus");
   const sheet = document.querySelector(".sheet");
   if (!el || !sheet) return;
   const er = el.getBoundingClientRect();
@@ -201,14 +201,22 @@ function scrollToFocusDay(){
   const theadH = (sheet.querySelector("thead")?.getBoundingClientRect().height) || 0;
   sheet.scrollTop += (er.top - sr.top) - theadH - 4;
 }
-function pickFocusDate(dayDates){
+function pickScrollDate(dayDates){
   if (!dayDates.length) return null;
-  // Prefer yesterday so opening the list reviews the prior day first
+  // Scroll so yesterday sits at the top for review
   if (dayDates.includes(YESTERDAY)) return YESTERDAY;
   const le = dayDates.filter(d => d <= YESTERDAY);
   if (le.length) return le[le.length - 1];
   if (dayDates.includes(AS_OF)) return AS_OF;
   return dayDates[0];
+}
+function pickHighlightDate(dayDates){
+  if (!dayDates.length) return null;
+  // Blue box stays on the latest day (as-of / today), not yesterday
+  if (dayDates.includes(AS_OF)) return AS_OF;
+  const le = dayDates.filter(d => d <= AS_OF);
+  if (le.length) return le[le.length - 1];
+  return dayDates[dayDates.length - 1];
 }
 function ymKey(d){ return d.getFullYear()+"-"+pad(d.getMonth()+1); }
 function ymLabel(ym){ const [y,mo]=ym.split("-"); return y+"年"+Number(mo)+"月"; }
@@ -298,10 +306,15 @@ function render(){
       '<td class="src">'+esc(ev.source||"—")+"</td>";
     tb.appendChild(tr);
   });
-  const focusDate = pickFocusDate(dayDates);
-  if (focusDate) {
-    const focusEl = document.getElementById("day-" + focusDate);
-    if (focusEl) focusEl.classList.add("day-focus");
+  const highlightDate = pickHighlightDate(dayDates);
+  if (highlightDate) {
+    const hiEl = document.getElementById("day-" + highlightDate);
+    if (hiEl) hiEl.classList.add("day-focus");
+  }
+  const scrollDate = pickScrollDate(dayDates);
+  if (scrollDate) {
+    const scEl = document.getElementById("day-" + scrollDate);
+    if (scEl) scEl.dataset.scrollTarget = "1";
   }
   requestAnimationFrame(() => requestAnimationFrame(scrollToFocusDay));
 }
