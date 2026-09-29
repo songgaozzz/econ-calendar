@@ -146,11 +146,19 @@
   .ics-url button { border:1px solid #1f4e79; background:#1f4e79; color:#fff; border-radius:6px; padding:6px 12px; font-size:12px; font-weight:700; cursor:pointer; white-space:nowrap; font-family:inherit; }
   .ics-url button.ok { background:#1e8449; border-color:#1e8449; }
   .ics-actions { display:flex; gap:8px; flex-wrap:wrap; }
-  .ics-actions a { flex:1; text-align:center; text-decoration:none; font-weight:700; font-size:13px; padding:8px 10px; border-radius:8px; white-space:nowrap; }
+  .ics-actions a { flex:1 1 40%; text-align:center; text-decoration:none; font-weight:700; font-size:13px; padding:8px 10px; border-radius:8px; white-space:nowrap; }
   .ics-primary { background:#c0392b; color:#fff; box-shadow:0 2px 6px rgba(192,57,43,.3); }
   .ics-primary:hover { background:#a93226; }
   .ics-secondary { background:#fff; color:#1f4e79; border:1px solid #1f4e79; }
   .ics-secondary:hover { background:#eef3f8; }
+  .ics-google { background:#1a73e8; color:#fff; }
+  .ics-google:hover { background:#1765cc; }
+  .ics-oneclick { display:flex; gap:6px; flex-wrap:wrap; margin:6px 0 6px; }
+  .ics-oneclick a { flex:1 1 180px; text-align:center; text-decoration:none; font-weight:700; font-size:12.5px; padding:7px 8px; border-radius:7px; }
+  .ics-o365 { background:#0f6cbd; color:#fff; }
+  .ics-o365:hover { background:#0c5a9e; }
+  .ics-olive { background:#fff; color:#0f6cbd; border:1px solid #0f6cbd; }
+  .ics-olive:hover { background:#eef4fb; }
   .ics-tips { margin:14px 0 6px; padding-left:18px; }
   .ics-tips li { margin:2px 0; }
   .ics-note { margin:8px 0 0; padding:8px 10px; background:#fff8e6; border:1px solid #f1dfae; border-radius:8px; color:#6b5313; font-size:12px; }
@@ -415,14 +423,18 @@ window.addEventListener("load", () => requestAnimationFrame(() => requestAnimati
     <p class="ics-sub">全部事件 · 北京时间 · 高重要度 ★ 事件提前 15 分钟提醒</p>
     <div class="ics-grid">
       <div class="ics-qr">
-        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMjIiIGhlaWdodD0iMjIyIiBjbGFzcz0ic2Vnbm8iPjxwYXRoIHRyYW5zZm9ybT0ic2NhbGUoNikiIGNsYXNzPSJxcmxpbmUiIHN0cm9rZT0iIzFhMWExYSIgZD0iTTIgMi41aDdtMSAwaDVtMyAwaDJtMSAwaDNtMSAwaDFtMiAwaDdtLTMzIDFoMW01IDBoMW0xIDBoMW0yIDBoMm0xIDBoMW0xIDBoMW0xIDBoMW0yIDBoMW0xIDBoMm0xIDBoMW01IDBoMW0tMzMgMWgxbTEgMGgzbTEgMGgxbTIgMGgybTEgMGgybTEgMGgxbTMgMGgxbTMgMGgybTEgMGgxbTEgMGgzbTEgMGgxbS0zMyAxaDFtMSAwaDNtMSAwaDFtMSAwaDRtNSAwaDFtMSAwaDFtMiAwaDFtMSAwaDFtMSAwaDFtMSAwaDNtMSAwaDFtLTMzIDFoMW0xIDBoM20xIDBoMW0yIDBoMW0xIDBoMW0yIDBoMW0yIDBoMW0xIDBoMW00IDBoMW0xIDBoMW0xIDBoM20xIDBoMW0tMzMgMWgxbTUgMGgxbTIgMGgybTEgMGgzbTMgMGgzbTEgMGgxbTEgMGgxbTEgMGgxbTUgMGgxbS0zMyAxaDdtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDdtLTI1IDFoMW0yIDBoMW0zIDBoMW0xIDBoMW00IDBoM20tMjUgMWgxbTEgMGgybTEgMGgzbTIgMGgybTIgMGgxbTEgMGg0bTEgMGgxbTQgMGgxbTIgMGgxbTEgMGgybS0zMyAxaDFtMiAwaDNtMiAwaDNtMiAwaDFtNCAwaDNtMiAwaDFtMiAwaDJtMSAwaDJtMSAwaDFtLTMzIDFoMW01IDBoMW00IDBoMW0xIDBoMW0yIDBoM20yIDBoNW0xIDBoM20yIDBoMW0tMzEgMWgybTEgMGgxbTIgMGgybTIgMGgxbTIgMGgxbTQgMGgxbTIgMGg1bTEgMGgxbTEgMGgybS0zMSAxaDFtMiAwaDRtMSAwaDJtMiAwaDFtMSAwaDJtNCAwaDFtMSAwaDJtMSAwaDNtMSAwaDJtLTMxIDFoM20zIDBoMW00IDBoNG0yIDBoMW0xIDBoMW0yIDBoMW0yIDBoMW0yIDBoMm0tMzEgMWgybTEgMGgxbTEgMGgxbTQgMGgybTEgMGgxbTQgMGgxbTEgMGgxbTIgMGgxbTEgMGg0bS0zMCAxaDFtMiAwaDJtMiAwaDFtMSAwaDFtMiAwaDFtMSAwaDFtMyAwaDFtMSAwaDRtMSAwaDJtMiAwaDJtLTMxIDFoMW0xIDBoMm0xIDBoM20zIDBoMm0xIDBoMW0zIDBoNW0yIDBoMm0xIDBoM20tMzAgMWgybTIgMGgxbTIgMGgxbTEgMGgzbTEgMGgybTIgMGgxbTEgMGgybTEgMGgybTEgMGgxbTEgMGgybTEgMGgybS0zMSAxaDNtMSAwaDJtNCAwaDFtMSAwaDNtMSAwaDFtMyAwaDFtMSAwaDJtMSAwaDJtMSAwaDJtLTI1IDFoMW0xIDBoMm02IDBoM200IDBoMW0xIDBoMW0xIDBoMW0yIDBoMW0tMzIgMWgxbTEgMGgxbTMgMGgxbTYgMGg2bTIgMGgzbTUgMGgybTEgMGgxbS0zMyAxaDFtMSAwaDRtMTAgMGgxbTIgMGgybTIgMGgybTEgMGgxbTMgMGgxbTEgMGgxbS0zMCAxaDVtMSAwaDFtMSAwaDNtMiAwaDNtMiAwaDFtMSAwaDFtMiAwaDFtMyAwaDNtLTMyIDFoMW0yIDBoMm0xIDBoMW0xIDBoNG0xIDBoMW0xIDBoMW0xIDBoMm0yIDBoMm0yIDBoMm0xIDBoMW0xIDBoMW0tMzIgMWgxbTQgMGgybTEgMGgxbTMgMGgybTMgMGgxbTQgMGgxbTEgMGg1bTIgMGgybS0yNSAxaDJtMyAwaDVtMSAwaDZtMyAwaDJtLTMwIDFoN20xIDBoMm0yIDBoMm0yIDBoMm0xIDBoMW0zIDBoMm0xIDBoMW0xIDBoMW0tMjkgMWgxbTUgMGgxbTEgMGgybTIgMGgxbTMgMGgxbTEgMGgybTEgMGg0bTMgMGg1bS0zMyAxaDFtMSAwaDNtMSAwaDFtNiAwaDFtMSAwaDFtMyAwaDEwbTEgMGgxbTEgMGgxbS0zMyAxaDFtMSAwaDNtMSAwaDFtMSAwaDNtMSAwaDFtMSAwaDJtNCAwaDVtMiAwaDFtNCAwaDFtLTMzIDFoMW0xIDBoM20xIDBoMW0xIDBoMm0yIDBoNG0xIDBoMm0xIDBoMW0yIDBoMW0yIDBoMm0xIDBoMm0tMzEgMWgxbTUgMGgxbTIgMGgxbTEgMGgxbTEgMGg1bTEgMGgybTMgMGgxbTEgMGgzbTMgMGgxbS0zMyAxaDdtMSAwaDRtMyAwaDNtMSAwaDNtMSAwaDFtNCAwaDFtMSAwaDEiLz48L3N2Zz4K" alt="扫码下载/导入 econ-calendar.ics"/>
-        <div class="ics-qr-cap">手机扫码<br/>下载 / 导入 .ics</div>
+        <a href="subscribe.html" target="_blank" rel="noopener"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMjIiIGhlaWdodD0iMjIyIiBjbGFzcz0ic2Vnbm8iPjxwYXRoIHRyYW5zZm9ybT0ic2NhbGUoNikiIGNsYXNzPSJxcmxpbmUiIHN0cm9rZT0iIzFhMWExYSIgZD0iTTIgMi41aDdtMyAwaDFtMiAwaDNtMSAwaDFtMSAwaDFtMiAwaDJtMiAwaDdtLTMzIDFoMW01IDBoMW01IDBoNG0yIDBoMW0xIDBoMm0xIDBoMm0xIDBoMW01IDBoMW0tMzMgMWgxbTEgMGgzbTEgMGgxbTIgMGgxbTEgMGgxbTEgMGgxbTEgMGgxbTEgMGgybTcgMGgxbTEgMGgzbTEgMGgxbS0zMyAxaDFtMSAwaDNtMSAwaDFtMyAwaDFtMiAwaDJtMSAwaDFtMSAwaDFtMyAwaDNtMSAwaDFtMSAwaDNtMSAwaDFtLTMzIDFoMW0xIDBoM20xIDBoMW0yIDBoMW0zIDBoMm0zIDBoMW0xIDBoMW0yIDBoMW0yIDBoMW0xIDBoM20xIDBoMW0tMzMgMWgxbTUgMGgxbTEgMGgxbTEgMGg0bTEgMGgybTEgMGgybTEgMGgxbTIgMGgxbTEgMGgxbTUgMGgxbS0zMyAxaDdtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDdtLTIxIDFoMW0xIDBoNG0yIDBoMm0tMjIgMWgxbTIgMGgxbTEgMGgybTEgMGgxbTEgMGgybTEgMGgybTEgMGgxbTQgMGgxbTEgMGgzbTEgMGgxbS0yNiAxaDFtNiAwaDFtMyAwaDFtNiAwaDJtMiAwaDRtMyAwaDJtLTMyIDFoNG0xIDBoMW0yIDBoM20xIDBoMm0xIDBoMW0xIDBoMm0xIDBoMW01IDBoMm0xIDBoM20tMzEgMWgybTcgMGgxbTEgMGgxbTIgMGgxbTQgMGgxbTEgMGgzbTIgMGgybTEgMGgxbS0zMSAxaDFtMyAwaDJtMyAwaDNtMSAwaDRtMiAwaDJtMyAwaDJtMiAwaDFtMSAwaDFtLTMyIDFoM201IDBoMW0xIDBoMW0xIDBoNG0yIDBoM20zIDBoMW0xIDBoMW0xIDBoMW0xIDBoM20tMzMgMWg0bTIgMGg1bTEgMGgybTEgMGg0bTIgMGgxbTEgMGgxbTEgMGg0bTEgMGgybS0zMSAxaDFtNSAwaDFtNCAwaDJtMiAwaDJtMyAwaDJtMSAwaDFtMSAwaDFtNCAwaDFtLTMyIDFoMW0xIDBoMm0yIDBoM20xIDBoMm0zIDBoMW0xIDBoMW0xIDBoNm0xIDBoMW0xIDBoMW0yIDBoMW0tMzEgMWgybTQgMGg0bTEgMGgybTIgMGgxbTEgMGgxbTIgMGg0bTIgMGgxbTEgMGgxbTEgMGgxbS0zMiAxaDFtMSAwaDFtMiAwaDJtMSAwaDFtMTEgMGgzbTEgMGgzbTMgMGgzbS0zMCAxaDJtMiAwaDJtMyAwaDJtMSAwaDNtMSAwaDNtMiAwaDFtMiAwaDFtMyAwaDJtLTMyIDFoNm01IDBoMm0xIDBoMm0yIDBoMW0xIDBoMW0yIDBoMm01IDBoMm0tMzIgMWgybTIgMGgxbTEgMGgxbTMgMGgzbTEgMGgxbTEgMGgxbTIgMGgxbTQgMGgybTIgMGgxbTEgMGgybS0zMyAxaDExbTIgMGgxbTUgMGgxbTEgMGgxbTIgMGgzbTIgMGgxbTIgMGgxbS0zMiAxaDFtMSAwaDFtMSAwaDFtNCAwaDRtMSAwaDFtMiAwaDRtMSAwaDFtNCAwaDJtMiAwaDFtLTMzIDFoMW0xIDBoNm0yIDBoMW0yIDBoMW0yIDBoMm0xIDBoM20yIDBoNW0tMjEgMWg0bTEgMGgybTQgMGgxbTEgMGgxbTEgMGgybTMgMGgybTIgMGgxbS0zMyAxaDdtNCAwaDJtMSAwaDFtMSAwaDJtMyAwaDJtMSAwaDFtMSAwaDFtMSAwaDRtLTMyIDFoMW01IDBoMW0xIDBoMW0xIDBoM20zIDBoM20yIDBoMm0xIDBoMW0zIDBoMW0zIDBoMW0tMzMgMWgxbTEgMGgzbTEgMGgxbTIgMGgxbTQgMGgybTEgMGgxbTIgMGgzbTEgMGg2bTEgMGgybS0zMyAxaDFtMSAwaDNtMSAwaDFtMSAwaDFtMSAwaDFtMiAwaDNtNiAwaDNtMSAwaDFtMSAwaDFtLTI5IDFoMW0xIDBoM20xIDBoMW0yIDBoMm01IDBoM20xIDBoNG00IDBoM20xIDBoMW0tMzMgMWgxbTUgMGgxbTIgMGgxbTEgMGgxbTMgMGgxbTEgMGgxbTEgMGgxbTEgMGgybTEgMGgxbS0yNSAxaDdtMSAwaDFtMSAwaDJtMSAwaDFtMSAwaDJtMSAwaDFtMSAwaDJtMiAwaDJtMiAwaDJtMSAwaDEiLz48L3N2Zz4K" alt="扫码打开订阅页 subscribe.html"/></a>
+        <div class="ics-qr-cap">手机扫码打开<b>订阅页</b><br/>安卓 / iPhone 一键添加</div>
       </div>
       <div class="ics-main">
         <div class="ics-outlook">
           <div class="ics-h">Outlook / Microsoft 365（推荐：订阅，自动更新）</div>
+          <div class="ics-oneclick">
+            <a class="ics-o365" href="https://outlook.office.com/calendar/0/addfromweb?url=https%3A%2F%2Fsonggaozzz.github.io%2Fecon-calendar%2Fecon-calendar.ics&amp;name=%E5%85%A8%E7%90%83%E8%B4%A2%E7%BB%8F%E6%97%A5%E5%8E%86" target="_blank" rel="noopener">一键订阅 · Microsoft 365（工作/学校）</a>
+            <a class="ics-olive" href="https://outlook.live.com/calendar/0/addfromweb?url=https%3A%2F%2Fsonggaozzz.github.io%2Fecon-calendar%2Fecon-calendar.ics&amp;name=%E5%85%A8%E7%90%83%E8%B4%A2%E7%BB%8F%E6%97%A5%E5%8E%86" target="_blank" rel="noopener">一键订阅 · Outlook.com（个人）</a>
+          </div>
           <ol>
-            <li>点下方「复制链接」</li>
+            <li>一键链接打不开时：点下方「复制链接」</li>
             <li><b>Outlook 网页版 / 新版 Outlook</b>：日历 → <b>添加日历</b> → <b>从 Internet 订阅</b> → 粘贴链接 → 名称填「全球财经日历」→ 导入</li>
             <li><b>经典 Outlook（Windows）</b>：日历 → 开始 → <b>添加日历</b> → <b>从 Internet</b> → 粘贴链接 → 是</li>
           </ol>
@@ -432,15 +444,17 @@ window.addEventListener("load", () => requestAnimationFrame(() => requestAnimati
           <button type="button" id="icsCopy">复制链接</button>
         </div>
         <div class="ics-actions">
-          <a class="ics-primary" href="webcal://songgaozzz.github.io/econ-calendar/econ-calendar.ics">订阅（自动更新）</a>
-          <a class="ics-secondary" href="https://songgaozzz.github.io/econ-calendar/econ-calendar.ics" download="econ-calendar.ics">下载 .ics 文件</a>
+          <a class="ics-primary" href="webcal://songgaozzz.github.io/econ-calendar/econ-calendar.ics">iPhone / Mac 订阅</a>
+          <a class="ics-google" href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Fsonggaozzz.github.io%2Fecon-calendar%2Fecon-calendar.ics" target="_blank" rel="noopener">添加到 Google 日历</a>
+          <a class="ics-secondary" href="econ-calendar.ics" download="econ-calendar.ics">下载 .ics 文件</a>
+          <a class="ics-secondary" href="subscribe.html" target="_blank" rel="noopener">打开订阅页</a>
         </div>
       </div>
     </div>
     <ul class="ics-tips">
-      <li><b>iPhone / Mac</b>：相机扫码，或直接点「订阅（自动更新）」。</li>
-      <li><b>Google 日历</b>（电脑网页）：左侧「其他日历」＋ → <b>通过网址添加</b> → 粘贴链接。</li>
-      <li><b>安卓</b>：扫码下载 .ics 后，用日历 App 打开导入。</li>
+      <li><b>iPhone / Mac</b>：相机扫码打开订阅页，或直接点「iPhone / Mac 订阅」。</li>
+      <li><b>Google 日历</b>：点「添加到 Google 日历」确认；或网页版左侧「其他日历」＋ → <b>通过网址添加</b> → 粘贴链接。</li>
+      <li><b>安卓</b>：扫码打开订阅页 → 「添加到 Google 日历」或「下载 .ics 导入」。微信里扫码需点右上角「在浏览器打开」。</li>
     </ul>
     <p class="ics-note">订阅会自动更新（Outlook / Google 每隔数小时刷新，Google 有时需 12–24 小时）；下载的 .ics 文件是一次性快照，之后不会随网站更新。</p>
   </div>
