@@ -11,7 +11,7 @@
   }
   * { box-sizing: border-box; }
   html, body { margin:0; height:100%; background:var(--bg); color:var(--ink);
-    font-family: "Microsoft YaHei","PingFang SC",sans-serif; }
+    font-family: "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif; }
   header {
     display:flex; flex-wrap:wrap; align-items:center; gap:10px 16px;
     padding:12px 18px; background:#fff; border-bottom:1px solid var(--line);
@@ -56,9 +56,15 @@
   .wrap { display:block; padding:12px 18px 24px; height:calc(100% - 62px); min-height:0; }
   @media (max-width: 960px) { .wrap { height:auto; } }
   .cal { background:var(--card); border:1px solid var(--line); border-radius:10px; overflow:hidden; display:flex; flex-direction:column; min-height:0; height:100%; }
-  .dow { display:grid; grid-template-columns:repeat(7,1fr); background:#1f4e79; color:#fff; font-size:12px; flex-shrink:0; }
-  .dow div { padding:8px; text-align:center; }
-  .grid { display:grid; grid-template-columns:repeat(7,1fr); grid-auto-rows:minmax(108px, auto); flex:1; min-height:0; overflow:auto; }
+  .dow { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); flex-shrink:0; position:relative; z-index:2;
+    background:linear-gradient(180deg,#2b5f92 0%,#1f4e79 55%,#1a4369 100%); color:#fff;
+    font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;
+    font-size:14px; font-weight:600; letter-spacing:.08em;
+    border-bottom:1px solid #163a5c; box-shadow:0 2px 6px rgba(20,45,75,.18); }
+  .dow div { height:40px; line-height:40px; padding:0 8px; text-align:center;
+    text-shadow:0 1px 0 rgba(0,0,0,.18); }
+  .dow div + div { box-shadow:inset 1px 0 0 rgba(255,255,255,.10); }
+  .grid { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); grid-auto-rows:minmax(108px, auto); flex:1; min-height:0; overflow:auto; }
   .cell { border:1px solid var(--line); padding:6px; min-height:108px; background:#fff; }
   .cell.out { background:#f3f4f6; color:#aaa; }
   .cell.today { outline:2px solid #c0392b; outline-offset:-2px; }

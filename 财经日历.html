@@ -11,7 +11,7 @@
   }
   * { box-sizing: border-box; }
   html, body { margin:0; height:100%; background:var(--bg); color:var(--ink);
-    font-family: "Microsoft YaHei","PingFang SC",sans-serif; }
+    font-family: "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif; }
   body { display:flex; flex-direction:column; }
   header {
     display:flex; flex-wrap:wrap; align-items:center; gap:10px 16px;
@@ -59,12 +59,23 @@
   .sheet { flex:1; min-height:0; background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:auto; }
   table { width:100%; border-collapse:separate; border-spacing:0; font-size:14px; min-width:1080px; }
   thead th {
-    position:sticky; top:0; z-index:4; background:#1f4e79; color:#fff;
-    font-weight:600; text-align:left; padding:10px 12px; white-space:nowrap;
-    box-shadow:0 2px 0 #1f4e79;
+    position:sticky; top:0; z-index:4;
+    background:linear-gradient(180deg,#2b5f92 0%,#1f4e79 55%,#1a4369 100%);
+    color:#fff; text-shadow:0 1px 0 rgba(0,0,0,.18);
+    font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;
+    font-size:14px; font-weight:600; letter-spacing:.08em;
+    height:42px; padding:0 12px; line-height:1.2; vertical-align:middle;
+    text-align:center; white-space:nowrap;
+    border-bottom:1px solid #163a5c;
+    box-shadow:inset 1px 0 0 rgba(255,255,255,.10), 0 3px 6px -2px rgba(20,45,75,.35);
   }
+  thead th:first-child { border-top-left-radius:11px; box-shadow:0 3px 6px -2px rgba(20,45,75,.35); }
+  thead th:last-child { border-top-right-radius:11px; }
+  th.c-l, td.c-l { text-align:left; }
+  th.c-c, td.c-c { text-align:center; }
+  td.c-nw { white-space:nowrap; }
   td { padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:middle; background:#fff; }
-  th.v, td.v { text-align:left; white-space:nowrap; vertical-align:middle; }
+  th.v, td.v { text-align:center; white-space:nowrap; vertical-align:middle; }
   th.v-prev, td.v-prev, th.v-fcst, td.v-fcst { min-width:88px; max-width:140px; }
   th.v-act, td.v-act { min-width:120px; max-width:220px; }
   td.v-act.long { white-space:normal; line-height:1.35; }
@@ -87,7 +98,12 @@
   .act-wait { color:#999; }
   .unit { color:#888; font-weight:400; font-size:12px; margin-left:4px; }
   .src { color:#666; font-size:12px; max-width:280px; }
-  .count { font-size:13px; color:var(--muted); margin:0 0 10px; }
+  .count { display:inline-flex; align-self:flex-start; align-items:center; gap:6px;
+    margin:0 0 10px; padding:4px 12px 4px 10px; border-radius:999px;
+    background:#e8eef6; border:1px solid #d3deeb; color:#1f4e79;
+    font-size:13px; font-weight:600; letter-spacing:.04em; }
+  .count::before { content:""; width:7px; height:7px; border-radius:50%; background:#1f4e79; opacity:.75; }
+  .count b { font-size:15px; font-weight:700; color:#c0392b; margin:0 1px; }
 </style>
 </head>
 <body>
@@ -127,17 +143,17 @@
     <table>
       <thead>
         <tr>
-          <th>日期</th>
-          <th>时间</th>
-          <th>国家</th>
-          <th>事件</th>
-          <th>重要程度</th>
-          <th>机构</th>
-          <th>报告期</th>
+          <th class="c-c">日期</th>
+          <th class="c-c">时间</th>
+          <th class="c-c">国家</th>
+          <th class="c-l">事件</th>
+          <th class="c-c">重要程度</th>
+          <th class="c-c">机构</th>
+          <th class="c-c">报告期</th>
           <th class="v v-prev">前值</th>
           <th class="v v-fcst">预期</th>
           <th class="v v-act">实际</th>
-          <th>来源</th>
+          <th class="c-l">来源</th>
         </tr>
       </thead>
       <tbody id="listBody"></tbody>
@@ -256,7 +272,7 @@ function render(){
   const prefix = y+"-"+pad(m+1);
   const rows = EVENTS.filter(ev => ev.date.startsWith(prefix) && visible(ev))
     .sort((a,b) => (a.date+a.time).localeCompare(b.date+b.time));
-  document.getElementById("count").textContent = "本月 " + rows.length + " 条事件";
+  document.getElementById("count").innerHTML = "本月 <b>" + rows.length + "</b> 条事件";
   const tb = document.getElementById("listBody");
   tb.innerHTML = "";
   if (!rows.length) {
@@ -293,17 +309,17 @@ function render(){
     const impLabel = ev.tier==="A" ? "高" : ev.tier==="B" ? "中" : "低";
     const impClass = ev.tier==="A" ? "imp-high" : ev.tier==="B" ? "imp-mid" : "imp-low";
     tr.innerHTML =
-      "<td>"+esc(ev.date)+"</td>"+
-      "<td>"+esc(ev.time)+"</td>"+
-      '<td><span class="dot '+ev.country+'"></span>'+esc(ev.country_cn)+"</td>"+
-      "<td><b>"+esc(ev.title)+"</b></td>"+
-      '<td class="'+impClass+'">'+impLabel+"</td>"+
-      "<td>"+esc(ev.agency)+"</td>"+
-      "<td>"+esc(ev.period||"—")+"</td>"+
+      '<td class="c-c c-nw">'+esc(ev.date)+"</td>"+
+      '<td class="c-c c-nw">'+esc(ev.time)+"</td>"+
+      '<td class="c-c c-nw"><span class="dot '+ev.country+'"></span>'+esc(ev.country_cn)+"</td>"+
+      '<td class="c-l"><b>'+esc(ev.title)+"</b></td>"+
+      '<td class="c-c '+impClass+'">'+impLabel+"</td>"+
+      '<td class="c-c">'+esc(ev.agency)+"</td>"+
+      '<td class="c-c">'+esc(ev.period||"—")+"</td>"+
       '<td class="v v-prev">'+prevCell+"</td>"+
       '<td class="v v-fcst">'+fcstCell+"</td>"+
       '<td class="v v-act'+actLong+'">'+actCell+"</td>"+
-      '<td class="src">'+esc(ev.source||"—")+"</td>";
+      '<td class="c-l src">'+esc(ev.source||"—")+"</td>";
     tb.appendChild(tr);
   });
   const highlightDate = pickHighlightDate(dayDates);
