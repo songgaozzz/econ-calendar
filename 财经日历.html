@@ -98,12 +98,63 @@
   .act-wait { color:#999; }
   .unit { color:#888; font-weight:400; font-size:12px; margin-left:4px; }
   .src { color:#666; font-size:12px; max-width:280px; }
+  /* make room for the top-right 订阅/导入日历 button on common laptop widths */
+  @media (max-width: 1440px) { header .legend { display:none; } header { gap:10px 12px; } }
   .count { display:inline-flex; align-self:flex-start; align-items:center; gap:6px;
     margin:0 0 10px; padding:4px 12px 4px 10px; border-radius:999px;
     background:#e8eef6; border:1px solid #d3deeb; color:#1f4e79;
     font-size:13px; font-weight:600; letter-spacing:.04em; }
   .count::before { content:""; width:7px; height:7px; border-radius:50%; background:#1f4e79; opacity:.75; }
   .count b { font-size:15px; font-weight:700; color:#c0392b; margin:0 1px; }
+
+  /* ---- 订阅/导入日历 (ics) ---- */
+  .ics-btn {
+    display:inline-flex; align-items:center; gap:6px; cursor:pointer;
+    border:1px solid #1f4e79; background:#fff; color:#1f4e79;
+    font-size:13px; font-weight:700; letter-spacing:.03em;
+    padding:6px 12px; border-radius:8px; box-shadow:0 1px 3px rgba(31,78,121,.18);
+    font-family:inherit; white-space:nowrap;
+  }
+  .ics-btn:hover { background:#1f4e79; color:#fff; }
+  .ics-modal { position:fixed; inset:0; z-index:60; display:flex; align-items:center; justify-content:center; padding:16px; }
+  .ics-modal[hidden] { display:none !important; }
+  .ics-backdrop { position:absolute; inset:0; background:rgba(0,0,0,.42); }
+  .ics-card {
+    position:relative; z-index:1; background:#fff; border:1px solid var(--line);
+    border-radius:14px; box-shadow:0 14px 44px rgba(0,0,0,.25);
+    width:calc(100% - 32px); max-width:640px; max-height:88vh; overflow:auto;
+    padding:20px 22px 16px; color:var(--ink); font-size:13px; line-height:1.6;
+  }
+  .ics-close {
+    position:absolute; top:8px; right:10px; border:0; background:transparent; color:#666;
+    font-size:22px; line-height:1; cursor:pointer; padding:4px 8px; border-radius:6px;
+  }
+  .ics-close:hover { background:#f0f2f5; color:#111; }
+  .ics-card h2 { margin:0 28px 2px 0; font-size:17px; color:#1f4e79; }
+  .ics-sub { margin:0 0 14px; color:var(--muted); font-size:12px; }
+  .ics-grid { display:flex; gap:18px; align-items:flex-start; }
+  .ics-qr { flex:0 0 172px; text-align:center; }
+  .ics-qr img { width:172px; height:172px; display:block; border:1px solid var(--line); border-radius:10px; padding:6px; background:#fff; }
+  .ics-qr-cap { margin-top:6px; font-size:12px; color:#555; line-height:1.45; }
+  .ics-main { flex:1; min-width:0; }
+  .ics-outlook { background:#eef4fb; border:1px solid #cfdcec; border-left:4px solid #0f6cbd; border-radius:10px; padding:10px 12px 8px; }
+  .ics-h { font-weight:700; color:#0f4c8a; font-size:14px; margin-bottom:4px; }
+  .ics-outlook ol { margin:0; padding-left:18px; }
+  .ics-outlook li { margin:2px 0; }
+  .ics-url { display:flex; gap:6px; margin:10px 0 8px; }
+  .ics-url input { flex:1; min-width:0; font-size:12px; padding:6px 8px; border:1px solid var(--line); border-radius:6px; color:#333; background:#fafbfc; font-family:Consolas,Menlo,monospace; }
+  .ics-url button { border:1px solid #1f4e79; background:#1f4e79; color:#fff; border-radius:6px; padding:6px 12px; font-size:12px; font-weight:700; cursor:pointer; white-space:nowrap; font-family:inherit; }
+  .ics-url button.ok { background:#1e8449; border-color:#1e8449; }
+  .ics-actions { display:flex; gap:8px; flex-wrap:wrap; }
+  .ics-actions a { flex:1; text-align:center; text-decoration:none; font-weight:700; font-size:13px; padding:8px 10px; border-radius:8px; white-space:nowrap; }
+  .ics-primary { background:#c0392b; color:#fff; box-shadow:0 2px 6px rgba(192,57,43,.3); }
+  .ics-primary:hover { background:#a93226; }
+  .ics-secondary { background:#fff; color:#1f4e79; border:1px solid #1f4e79; }
+  .ics-secondary:hover { background:#eef3f8; }
+  .ics-tips { margin:14px 0 6px; padding-left:18px; }
+  .ics-tips li { margin:2px 0; }
+  .ics-note { margin:8px 0 0; padding:8px 10px; background:#fff8e6; border:1px solid #f1dfae; border-radius:8px; color:#6b5313; font-size:12px; }
+  @media (max-width: 560px) { .ics-grid { flex-direction:column; align-items:center; } .ics-main { width:100%; } }
 </style>
 </head>
 <body>
@@ -136,6 +187,7 @@
     <label><input type="radio" name="typeMode" id="modeInd"> 仅产业</label>
     <span class="legend">北京时间 · 全宽列表</span>
   </div>
+  <button type="button" class="ics-btn" id="icsBtn" title="手机扫码或复制链接，把日历导入 Outlook / iPhone / Google">📅 订阅/导入日历</button>
 </header>
 <div class="page">
   <p class="count" id="count"></p>
@@ -354,6 +406,66 @@ document.querySelectorAll(".filters input").forEach(i => i.addEventListener("cha
 fillMonthSelect();
 render();
 window.addEventListener("load", () => requestAnimationFrame(() => requestAnimationFrame(scrollToFocusDay)));
+</script>
+<div id="icsModal" class="ics-modal" hidden>
+  <div class="ics-backdrop" data-ics-close="1"></div>
+  <div class="ics-card" role="dialog" aria-modal="true" aria-labelledby="icsTitle">
+    <button type="button" class="ics-close" data-ics-close="1" aria-label="关闭">×</button>
+    <h2 id="icsTitle">📅 订阅 / 导入日历</h2>
+    <p class="ics-sub">全部事件 · 北京时间 · 高重要度 ★ 事件提前 15 分钟提醒</p>
+    <div class="ics-grid">
+      <div class="ics-qr">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMjIiIGhlaWdodD0iMjIyIiBjbGFzcz0ic2Vnbm8iPjxwYXRoIHRyYW5zZm9ybT0ic2NhbGUoNikiIGNsYXNzPSJxcmxpbmUiIHN0cm9rZT0iIzFhMWExYSIgZD0iTTIgMi41aDdtMSAwaDVtMyAwaDJtMSAwaDNtMSAwaDFtMiAwaDdtLTMzIDFoMW01IDBoMW0xIDBoMW0yIDBoMm0xIDBoMW0xIDBoMW0xIDBoMW0yIDBoMW0xIDBoMm0xIDBoMW01IDBoMW0tMzMgMWgxbTEgMGgzbTEgMGgxbTIgMGgybTEgMGgybTEgMGgxbTMgMGgxbTMgMGgybTEgMGgxbTEgMGgzbTEgMGgxbS0zMyAxaDFtMSAwaDNtMSAwaDFtMSAwaDRtNSAwaDFtMSAwaDFtMiAwaDFtMSAwaDFtMSAwaDFtMSAwaDNtMSAwaDFtLTMzIDFoMW0xIDBoM20xIDBoMW0yIDBoMW0xIDBoMW0yIDBoMW0yIDBoMW0xIDBoMW00IDBoMW0xIDBoMW0xIDBoM20xIDBoMW0tMzMgMWgxbTUgMGgxbTIgMGgybTEgMGgzbTMgMGgzbTEgMGgxbTEgMGgxbTEgMGgxbTUgMGgxbS0zMyAxaDdtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDFtMSAwaDdtLTI1IDFoMW0yIDBoMW0zIDBoMW0xIDBoMW00IDBoM20tMjUgMWgxbTEgMGgybTEgMGgzbTIgMGgybTIgMGgxbTEgMGg0bTEgMGgxbTQgMGgxbTIgMGgxbTEgMGgybS0zMyAxaDFtMiAwaDNtMiAwaDNtMiAwaDFtNCAwaDNtMiAwaDFtMiAwaDJtMSAwaDJtMSAwaDFtLTMzIDFoMW01IDBoMW00IDBoMW0xIDBoMW0yIDBoM20yIDBoNW0xIDBoM20yIDBoMW0tMzEgMWgybTEgMGgxbTIgMGgybTIgMGgxbTIgMGgxbTQgMGgxbTIgMGg1bTEgMGgxbTEgMGgybS0zMSAxaDFtMiAwaDRtMSAwaDJtMiAwaDFtMSAwaDJtNCAwaDFtMSAwaDJtMSAwaDNtMSAwaDJtLTMxIDFoM20zIDBoMW00IDBoNG0yIDBoMW0xIDBoMW0yIDBoMW0yIDBoMW0yIDBoMm0tMzEgMWgybTEgMGgxbTEgMGgxbTQgMGgybTEgMGgxbTQgMGgxbTEgMGgxbTIgMGgxbTEgMGg0bS0zMCAxaDFtMiAwaDJtMiAwaDFtMSAwaDFtMiAwaDFtMSAwaDFtMyAwaDFtMSAwaDRtMSAwaDJtMiAwaDJtLTMxIDFoMW0xIDBoMm0xIDBoM20zIDBoMm0xIDBoMW0zIDBoNW0yIDBoMm0xIDBoM20tMzAgMWgybTIgMGgxbTIgMGgxbTEgMGgzbTEgMGgybTIgMGgxbTEgMGgybTEgMGgybTEgMGgxbTEgMGgybTEgMGgybS0zMSAxaDNtMSAwaDJtNCAwaDFtMSAwaDNtMSAwaDFtMyAwaDFtMSAwaDJtMSAwaDJtMSAwaDJtLTI1IDFoMW0xIDBoMm02IDBoM200IDBoMW0xIDBoMW0xIDBoMW0yIDBoMW0tMzIgMWgxbTEgMGgxbTMgMGgxbTYgMGg2bTIgMGgzbTUgMGgybTEgMGgxbS0zMyAxaDFtMSAwaDRtMTAgMGgxbTIgMGgybTIgMGgybTEgMGgxbTMgMGgxbTEgMGgxbS0zMCAxaDVtMSAwaDFtMSAwaDNtMiAwaDNtMiAwaDFtMSAwaDFtMiAwaDFtMyAwaDNtLTMyIDFoMW0yIDBoMm0xIDBoMW0xIDBoNG0xIDBoMW0xIDBoMW0xIDBoMm0yIDBoMm0yIDBoMm0xIDBoMW0xIDBoMW0tMzIgMWgxbTQgMGgybTEgMGgxbTMgMGgybTMgMGgxbTQgMGgxbTEgMGg1bTIgMGgybS0yNSAxaDJtMyAwaDVtMSAwaDZtMyAwaDJtLTMwIDFoN20xIDBoMm0yIDBoMm0yIDBoMm0xIDBoMW0zIDBoMm0xIDBoMW0xIDBoMW0tMjkgMWgxbTUgMGgxbTEgMGgybTIgMGgxbTMgMGgxbTEgMGgybTEgMGg0bTMgMGg1bS0zMyAxaDFtMSAwaDNtMSAwaDFtNiAwaDFtMSAwaDFtMyAwaDEwbTEgMGgxbTEgMGgxbS0zMyAxaDFtMSAwaDNtMSAwaDFtMSAwaDNtMSAwaDFtMSAwaDJtNCAwaDVtMiAwaDFtNCAwaDFtLTMzIDFoMW0xIDBoM20xIDBoMW0xIDBoMm0yIDBoNG0xIDBoMm0xIDBoMW0yIDBoMW0yIDBoMm0xIDBoMm0tMzEgMWgxbTUgMGgxbTIgMGgxbTEgMGgxbTEgMGg1bTEgMGgybTMgMGgxbTEgMGgzbTMgMGgxbS0zMyAxaDdtMSAwaDRtMyAwaDNtMSAwaDNtMSAwaDFtNCAwaDFtMSAwaDEiLz48L3N2Zz4K" alt="扫码下载/导入 econ-calendar.ics"/>
+        <div class="ics-qr-cap">手机扫码<br/>下载 / 导入 .ics</div>
+      </div>
+      <div class="ics-main">
+        <div class="ics-outlook">
+          <div class="ics-h">Outlook / Microsoft 365（推荐：订阅，自动更新）</div>
+          <ol>
+            <li>点下方「复制链接」</li>
+            <li><b>Outlook 网页版 / 新版 Outlook</b>：日历 → <b>添加日历</b> → <b>从 Internet 订阅</b> → 粘贴链接 → 名称填「全球财经日历」→ 导入</li>
+            <li><b>经典 Outlook（Windows）</b>：日历 → 开始 → <b>添加日历</b> → <b>从 Internet</b> → 粘贴链接 → 是</li>
+          </ol>
+        </div>
+        <div class="ics-url">
+          <input id="icsUrl" type="text" readonly value="https://songgaozzz.github.io/econ-calendar/econ-calendar.ics" aria-label="日历订阅链接"/>
+          <button type="button" id="icsCopy">复制链接</button>
+        </div>
+        <div class="ics-actions">
+          <a class="ics-primary" href="webcal://songgaozzz.github.io/econ-calendar/econ-calendar.ics">订阅（自动更新）</a>
+          <a class="ics-secondary" href="https://songgaozzz.github.io/econ-calendar/econ-calendar.ics" download="econ-calendar.ics">下载 .ics 文件</a>
+        </div>
+      </div>
+    </div>
+    <ul class="ics-tips">
+      <li><b>iPhone / Mac</b>：相机扫码，或直接点「订阅（自动更新）」。</li>
+      <li><b>Google 日历</b>（电脑网页）：左侧「其他日历」＋ → <b>通过网址添加</b> → 粘贴链接。</li>
+      <li><b>安卓</b>：扫码下载 .ics 后，用日历 App 打开导入。</li>
+    </ul>
+    <p class="ics-note">订阅会自动更新（Outlook / Google 每隔数小时刷新，Google 有时需 12–24 小时）；下载的 .ics 文件是一次性快照，之后不会随网站更新。</p>
+  </div>
+</div>
+<script>
+(function(){
+  const m = document.getElementById("icsModal");
+  if (!m) return;
+  function openIcs(){ m.hidden = false; document.body.style.overflow = "hidden"; }
+  function closeIcs(){ m.hidden = true; document.body.style.overflow = ""; }
+  document.getElementById("icsBtn").addEventListener("click", openIcs);
+  m.querySelectorAll("[data-ics-close]").forEach(el => el.addEventListener("click", (e) => { e.preventDefault(); closeIcs(); }));
+  m.querySelector(".ics-card").addEventListener("click", (e) => e.stopPropagation());
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !m.hidden) closeIcs(); });
+  const btn = document.getElementById("icsCopy");
+  const inp = document.getElementById("icsUrl");
+  function done(){ btn.textContent = "已复制 ✓"; btn.classList.add("ok"); setTimeout(() => { btn.textContent = "复制链接"; btn.classList.remove("ok"); }, 1800); }
+  function fallback(){ inp.focus(); inp.select(); try { document.execCommand("copy"); done(); } catch (err) { btn.textContent = "请手动复制"; } }
+  btn.addEventListener("click", () => {
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(inp.value).then(done, fallback);
+    else fallback();
+  });
+  inp.addEventListener("focus", () => inp.select());
+  if (location.hash === "#subscribe") openIcs();
+})();
 </script>
 </body>
 </html>
