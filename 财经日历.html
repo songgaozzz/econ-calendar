@@ -16,7 +16,7 @@
   header {
     display:flex; flex-wrap:wrap; align-items:center; gap:10px 16px;
     padding:14px 22px; background:#fff; border-bottom:1px solid var(--line);
-    flex-shrink:0; z-index:20;
+    flex-shrink:0; z-index:20; position:relative;
   }
   h1 { font-size:20px; margin:0; color:#1f4e79; }
   .page-link {
@@ -239,7 +239,7 @@
     <span class="legend">北京时间 · 点事件标题看历史走势</span>
   </div>
   <button type="button" class="ics-btn" id="icsBtn" title="手机扫码或复制链接，把日历导入 Outlook / iPhone / Google">📅 订阅/导入日历</button>
-</header>
+<span class="site-credit" style="position:absolute;right:18px;bottom:1px;font-size:10px;color:#8a8f99;white-space:nowrap;line-height:1">by <a href="https://github.com/songgaozzz" target="_blank" rel="noopener" style="color:#8a8f99;text-decoration:none">Sean Lau (@songgaozzz)</a></span></header>
 <div class="page">
   <p class="count" id="count"></p>
   <div class="sheet">
@@ -643,6 +643,5 @@ window.addEventListener("load", () => requestAnimationFrame(() => requestAnimati
   if (location.hash === "#subscribe") openIcs();
 })();
 </script>
-<footer class="site-footer" style="text-align:center;font-size:12px;color:#667;padding:14px 16px 18px;line-height:1.5">© 2026 Made by <a href="https://github.com/songgaozzz" target="_blank" rel="noopener" style="color:#1f4e79;text-decoration:none;font-weight:600">Sean Lau (@songgaozzz)</a></footer>
 </body>
 </html>
