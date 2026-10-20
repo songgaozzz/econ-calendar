@@ -8,7 +8,7 @@ h1{font-size:20px;margin:0} .page-link{color:var(--blue);font-weight:700;text-de
 .meta{color:var(--muted);font-size:12px;padding:6px 16px}
 .tabs{display:flex;gap:6px;padding:0 16px} .tabs button{border:1px solid var(--line);background:#fff;border-radius:6px 6px 0 0;padding:6px 14px;cursor:pointer;font:inherit}
 .tabs button.on{background:var(--blue);color:#fff;border-color:var(--blue)}
-.wrap{margin:0 16px 16px;overflow:auto;max-height:calc(100vh - 150px);background:#fff;border:1px solid var(--line)}
+.wrap{margin:0 16px 16px;overflow:auto;max-height:calc(100vh - 200px);background:#fff;border:1px solid var(--line)}
 table{border-collapse:separate;border-spacing:0;font-size:12.5px;line-height:1.45}
 th,td{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:6px 8px;vertical-align:top;text-align:left;min-width:190px;max-width:260px}
 th{position:sticky;top:0;background:#d9e1f2;z-index:2} td:first-child,th:first-child{position:sticky;left:0;min-width:84px;max-width:110px;font-weight:700;background:#fff;z-index:1}
@@ -70,4 +70,5 @@ document.addEventListener("keydown",e=>{ if(e.key==="Escape"&&!document.getEleme
 const h=location.hash.match(/^#item=(.+)$/); if(h) openItem(decodeURIComponent(h[1]));
 </script>
 <script>document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));['t1','t2'].forEach(id=>document.getElementById(id).classList.toggle('hide',id!==b.dataset.t));});</script>
+<footer class="site-footer" style="text-align:center;font-size:12px;color:#667;padding:14px 16px 18px;line-height:1.5">© 2026 Made by <a href="https://github.com/songgaozzz" target="_blank" rel="noopener" style="color:#1f4e79;text-decoration:none;font-weight:600">Sean Lau (@songgaozzz)</a></footer>
 </body></html>
