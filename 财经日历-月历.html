@@ -401,7 +401,7 @@ function fmtVal(val, unit, opts){
   const statusLike = /已[公布召开发布举行交割]/.test(raw);
   const descriptive = /m\/m|y\/y|bp|万|人|蒲|吨/.test(raw);
   const mostlyNum = /^[+-]?[\d,]+(?:\.\d+)?(?:\s*[–—-]\s*[+-]?[\d,]+(?:\.\d+)?)?$/.test(raw);
-  let body = esc(raw);
+  let body = esc(raw).replace(/ \/ /g, "<br>");
   if (opts.actualOk) body = '<span class="act-ok">'+body+"</span>";
   if (skipUnit || hasPctDigit || hasUnitStr || statusLike || descriptive || !mostlyNum) {
     return body;

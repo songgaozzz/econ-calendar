@@ -75,10 +75,10 @@
   th.c-c, td.c-c { text-align:center; }
   td.c-nw { white-space:nowrap; }
   td { padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:middle; background:#fff; }
-  th.v, td.v { text-align:center; white-space:nowrap; vertical-align:middle; }
-  th.v-prev, td.v-prev, th.v-fcst, td.v-fcst { min-width:88px; max-width:140px; }
-  th.v-act, td.v-act { min-width:120px; max-width:220px; }
-  td.v-act.long { white-space:normal; line-height:1.35; }
+  th.v, td.v { text-align:center; vertical-align:middle; }
+  th.v-prev, td.v-prev, th.v-fcst, td.v-fcst { min-width:88px; }
+  th.v-act, td.v-act { min-width:120px; }
+  td.v-prev, td.v-fcst, td.v-act { white-space:normal; line-height:1.35; word-break:break-word; }
   tr.day-row td { background:#eef3f8; font-weight:700; color:#1f4e79; font-size:14px; }
   tr.day-row.day-focus td {
     background:#dde7f2; outline:2px solid #1f4e79; outline-offset:-2px;
@@ -371,7 +371,7 @@ function fmtVal(val, unit, opts){
   const statusLike = /已[公布召开发布举行交割]/.test(raw);
   const descriptive = /m\/m|y\/y|bp|万|人|蒲|吨/.test(raw);
   const mostlyNum = /^[+-]?[\d,]+(?:\.\d+)?(?:\s*[–—-]\s*[+-]?[\d,]+(?:\.\d+)?)?$/.test(raw);
-  let body = esc(raw);
+  let body = esc(raw).replace(/ \/ /g, "<br>");
   if (opts.actualOk) body = '<span class="act-ok">'+body+"</span>";
   if (skipUnit || hasPctDigit || hasUnitStr || statusLike || descriptive || !mostlyNum) {
     return body;
@@ -469,10 +469,9 @@ function render(){
     tr.className = "ev-row";
     const prevCell = fmtVal(ev.previous, ev.unit);
     const fcstCell = fmtVal(ev.forecast, ev.unit);
-    let actCell, actLong = "";
+    let actCell;
     if (ev.actual) {
       actCell = fmtVal(ev.actual, ev.unit, {actualOk:true});
-      if (String(ev.actual).length > 28) actLong = " long";
     } else {
       actCell = '<span class="act-wait">待公布</span>';
     }
@@ -491,7 +490,7 @@ function render(){
       '<td class="c-c">'+esc(ev.period||"—")+"</td>"+
       '<td class="v v-prev">'+prevCell+"</td>"+
       '<td class="v v-fcst">'+fcstCell+"</td>"+
-      '<td class="v v-act'+actLong+'">'+actCell+"</td>"+
+      '<td class="v v-act">'+actCell+"</td>"+
       '<td class="c-l src">'+esc(ev.source||"—")+"</td>";
     const link = tr.querySelector("button.title-link");
     if (link) link.addEventListener("click", (e) => { e.preventDefault(); showListEvent(ev); });
