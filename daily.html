@@ -1,23 +1,24 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/><title>宏观日报</title>
 <style>
-:root{--bg:#f6f7f9;--card:#fff;--line:#e6e8ee;--ink:#1a1a1a;--muted:#667;--acc:#1f4e79}
+:root{--bg:#f6f7f9;--card:#fff;--line:#e6e8ee;--ink:#1a1a1a;--muted:#667;--acc:#1f4e79;--acc2:#b3271e;--tint:#eaf0f7}
 html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif}
 *,*::before,*::after{box-sizing:border-box}
-header{padding:12px 16px;background:var(--card);border-bottom:1px solid var(--line)}
+header{padding:12px 16px;background:#243447}
+.stripe{height:4px;background:linear-gradient(90deg,#1b3a5f 0 33%,#0a5c36 33% 66%,#093656 66% 100%)}
 .hwrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px;max-width:1100px;margin:0 auto}
-h1.t{font-size:20px;margin:0;color:var(--acc)} .page-link{color:var(--acc);font-weight:700;text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:4px 10px}
+h1.t{font-size:20px;margin:0;color:#fff} .page-link{color:#fff;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,.45);border-radius:6px;padding:4px 10px}
 .meta{color:var(--muted);font-size:12px;width:min(1100px,calc(100% - 32px));margin:0 auto;padding:10px 0 6px}
 article{background:var(--card);border:1px solid var(--line);border-radius:10px;width:min(1100px,calc(100% - 32px));margin:0 auto 24px;padding:8px 22px 20px;line-height:1.7;font-size:14.5px}
-article h1{font-size:21px} article h2{font-size:18px;margin:22px 0 10px;padding:8px 12px;border-left:4px solid var(--acc);background:#f7f9fc;border-bottom:1px solid var(--line);color:var(--acc)} article h3{font-size:16px}
+article h1{font-size:21px} article h2{font-size:18px;margin:22px 0 10px;padding:8px 12px;border-left:4px solid var(--acc);background:var(--tint);border-bottom:1px solid var(--line);color:var(--acc)} article h3{font-size:16px}
 article strong{color:var(--acc)}
-article blockquote{margin:10px 0;padding:10px 14px;background:#f7f9fc;border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:8px;color:#334}
+article blockquote{margin:10px 0;padding:10px 14px;background:var(--tint);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:8px;color:#334}
 article blockquote p{margin:4px 0} article blockquote ul{margin:4px 0;padding-left:20px;line-height:1.65}
 .note{background:#fff8e6;border:1px solid #ecd9a0;border-left:4px solid #d9a441;border-radius:8px;padding:8px 14px;margin:16px 0}
 .note p{margin:6px 0} .note ul{margin:6px 0;padding-left:20px;line-height:1.65} .note strong{color:#8a6d1b}
 .stats-h{width:min(1100px,calc(100% - 32px));margin:0 auto 8px;font-size:13px;color:var(--muted)}
 .stats{display:flex;flex-wrap:wrap;gap:8px;width:min(1100px,calc(100% - 32px));margin:0 auto 18px}
-.stat{flex:1 1 30%;min-width:104px;max-width:220px;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--acc);border-radius:8px;padding:10px 12px 8px}
+.stat{flex:1 1 30%;min-width:104px;max-width:220px;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--acc2);border-radius:8px;padding:10px 12px 8px}
 .stat .l{font-size:12.5px;color:var(--muted)} .stat .v{font-size:20px;font-weight:700;color:var(--acc);margin:3px 0 1px} .stat .d{font-size:11px;color:var(--muted)}
 article a{color:var(--acc)} article img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:8px;margin:8px 0;background:#fff;display:block} .tw{overflow-x:auto;margin:10px 0}
 table{border-collapse:collapse;font-size:13px;line-height:1.5;min-width:600px}
@@ -34,4 +35,4 @@ h2.sec{font-size:17px;width:min(1100px,calc(100% - 32px));margin:0 auto 10px;col
 .card p{margin:4px 0;line-height:1.65;font-size:14px} .card .d{color:var(--muted);font-size:12.5px}
 .foot{color:var(--muted);font-size:12px;width:min(1100px,calc(100% - 32px));margin:0 auto;padding:0 0 24px}
 @media (max-width:640px){article{padding:4px 12px 14px;font-size:14px} .issue{padding:8px 12px 10px} table{font-size:12px} .page-link{padding:6px 12px;font-size:14px}}
-</style></head><body><header><div class="hwrap"><h1 class="t">宏观日报</h1><a class="page-link" href="财经日历.html">← 财经日历</a><a class="page-link" href="index.html">列表页</a><a class="page-link" href="macro.html">宏观周报</a><a class="page-link" href="indicators.html">指标图表</a></div></header><div class="meta">美国 / 巴西 / 阿根廷宏观日报 · 每工作日 07:30 更新 · 页面生成 2026-11-23（北京时间）</div><div class="cards"><div class="card"><h3><a href="daily-us.html">美国宏观日报</a></h3><p class="d">最新一期 2026-11-23 · 周一 · 共 14 期</p><p>周日夜盘股指期货反弹：标普500期货 +1.2%–1.3%、纳指100期货 +2.0%–2.1%、道指期货 +0.6%–0.8%（约 +400 点）。此前一周道指、纳指创 2020 年 3 月以来最差周，标普创 2025 年 4 月以来最差周（标普 -8.6%、纳指 -10%、道…</p><p><a href="daily-us.html">查看全文 →</a></p></div><div class="card"><h3><a href="daily-br.html">巴西宏观日报</a></h3><p class="d">最新一期 2026-11-23 · 周一 · 共 10 期</p><p>更新：周五 B3 休市，但离岸美元周末仍在 R$5.94 附近，周五场外一度触及 R$5.9495，为 4 月以来最高；ING 警告美元可能上探 6.00–6.30 区间。</p><p><a href="daily-br.html">查看全文 →</a></p></div><div class="card"><h3><a href="daily-ar.html">阿根廷宏观日报</a></h3><p class="d">最新一期 2026-11-23 · 周一 · 共 10 期</p><p>风险国破千点至 1,070 点：单日 +139 点（+14.9%），为 13 个月来最高；本周累计 +230 点（+28%）；美元债 Globales 单日跌幅最高 4.5%，本周约 −7%。（La Nación、Rava、Infobae）</p><p><a href="daily-ar.html">查看全文 →</a></p></div></div><div class="foot">每国一页：最新一期全文在前，往期只列最新 7 期，更早的收进底部「更早往期」</div></body></html>
+</style></head><body><header><div class="hwrap"><h1 class="t">宏观日报</h1><a class="page-link" href="财经日历.html">← 财经日历</a><a class="page-link" href="index.html">列表页</a><a class="page-link" href="macro.html">宏观周报</a><a class="page-link" href="indicators.html">指标图表</a></div></header><div class="stripe"></div><div class="meta">美国 / 巴西 / 阿根廷宏观日报 · 每工作日 07:30 更新 · 页面生成 2026-11-23（北京时间）</div><div class="cards"><div class="card" style="border-top:3px solid #1b3a5f"><h3><a href="daily-us.html" style="color:#1b3a5f">美国宏观日报</a></h3><p class="d">最新一期 2026-11-23 · 周一 · 共 14 期</p><p>周日夜盘股指期货反弹：标普500期货 +1.2%–1.3%、纳指100期货 +2.0%–2.1%、道指期货 +0.6%–0.8%（约 +400 点）。此前一周道指、纳指创 2020 年 3 月以来最差周，标普创 2025 年 4 月以来最差周（标普 -8.6%、纳指 -10%、道…</p><p><a href="daily-us.html">查看全文 →</a></p></div><div class="card" style="border-top:3px solid #0a5c36"><h3><a href="daily-br.html" style="color:#0a5c36">巴西宏观日报</a></h3><p class="d">最新一期 2026-11-23 · 周一 · 共 10 期</p><p>更新：周五 B3 休市，但离岸美元周末仍在 R$5.94 附近，周五场外一度触及 R$5.9495，为 4 月以来最高；ING 警告美元可能上探 6.00–6.30 区间。</p><p><a href="daily-br.html">查看全文 →</a></p></div><div class="card" style="border-top:3px solid #1f6fb8"><h3><a href="daily-ar.html" style="color:#1f6fb8">阿根廷宏观日报</a></h3><p class="d">最新一期 2026-11-23 · 周一 · 共 10 期</p><p>风险国破千点至 1,070 点：单日 +139 点（+14.9%），为 13 个月来最高；本周累计 +230 点（+28%）；美元债 Globales 单日跌幅最高 4.5%，本周约 −7%。（La Nación、Rava、Infobae）</p><p><a href="daily-ar.html">查看全文 →</a></p></div></div><div class="foot">每国一页：最新一期全文在前，往期只列最新 7 期，更早的收进底部「更早往期」</div></body></html>

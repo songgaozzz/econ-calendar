@@ -1,23 +1,24 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/><title>美国宏观日报</title>
 <style>
-:root{--bg:#f6f7f9;--card:#fff;--line:#e6e8ee;--ink:#1a1a1a;--muted:#667;--acc:#1f4e79}
+:root{--bg:#f6f7f9;--card:#fff;--line:#e6e8ee;--ink:#1a1a1a;--muted:#667;--acc:#1b3a5f;--acc2:#b3271e;--tint:#eaf0f7}
 html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif}
 *,*::before,*::after{box-sizing:border-box}
-header{padding:12px 16px;background:var(--card);border-bottom:1px solid var(--line)}
+header{padding:12px 16px;background:#1b3a5f}
+.stripe{height:4px;background:linear-gradient(90deg,#b3271e 0 33%,#ffffff 33% 66%,#1b3a5f 66% 100%)}
 .hwrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px;max-width:1100px;margin:0 auto}
-h1.t{font-size:20px;margin:0;color:var(--acc)} .page-link{color:var(--acc);font-weight:700;text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:4px 10px}
+h1.t{font-size:20px;margin:0;color:#fff} .page-link{color:#fff;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,.45);border-radius:6px;padding:4px 10px}
 .meta{color:var(--muted);font-size:12px;width:min(1100px,calc(100% - 32px));margin:0 auto;padding:10px 0 6px}
 article{background:var(--card);border:1px solid var(--line);border-radius:10px;width:min(1100px,calc(100% - 32px));margin:0 auto 24px;padding:8px 22px 20px;line-height:1.7;font-size:14.5px}
-article h1{font-size:21px} article h2{font-size:18px;margin:22px 0 10px;padding:8px 12px;border-left:4px solid var(--acc);background:#f7f9fc;border-bottom:1px solid var(--line);color:var(--acc)} article h3{font-size:16px}
+article h1{font-size:21px} article h2{font-size:18px;margin:22px 0 10px;padding:8px 12px;border-left:4px solid var(--acc);background:var(--tint);border-bottom:1px solid var(--line);color:var(--acc)} article h3{font-size:16px}
 article strong{color:var(--acc)}
-article blockquote{margin:10px 0;padding:10px 14px;background:#f7f9fc;border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:8px;color:#334}
+article blockquote{margin:10px 0;padding:10px 14px;background:var(--tint);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:8px;color:#334}
 article blockquote p{margin:4px 0} article blockquote ul{margin:4px 0;padding-left:20px;line-height:1.65}
 .note{background:#fff8e6;border:1px solid #ecd9a0;border-left:4px solid #d9a441;border-radius:8px;padding:8px 14px;margin:16px 0}
 .note p{margin:6px 0} .note ul{margin:6px 0;padding-left:20px;line-height:1.65} .note strong{color:#8a6d1b}
 .stats-h{width:min(1100px,calc(100% - 32px));margin:0 auto 8px;font-size:13px;color:var(--muted)}
 .stats{display:flex;flex-wrap:wrap;gap:8px;width:min(1100px,calc(100% - 32px));margin:0 auto 18px}
-.stat{flex:1 1 30%;min-width:104px;max-width:220px;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--acc);border-radius:8px;padding:10px 12px 8px}
+.stat{flex:1 1 30%;min-width:104px;max-width:220px;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--acc2);border-radius:8px;padding:10px 12px 8px}
 .stat .l{font-size:12.5px;color:var(--muted)} .stat .v{font-size:20px;font-weight:700;color:var(--acc);margin:3px 0 1px} .stat .d{font-size:11px;color:var(--muted)}
 article a{color:var(--acc)} article img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:8px;margin:8px 0;background:#fff;display:block} .tw{overflow-x:auto;margin:10px 0}
 table{border-collapse:collapse;font-size:13px;line-height:1.5;min-width:600px}
@@ -34,13 +35,16 @@ h2.sec{font-size:17px;width:min(1100px,calc(100% - 32px));margin:0 auto 10px;col
 .card p{margin:4px 0;line-height:1.65;font-size:14px} .card .d{color:var(--muted);font-size:12.5px}
 .foot{color:var(--muted);font-size:12px;width:min(1100px,calc(100% - 32px));margin:0 auto;padding:0 0 24px}
 @media (max-width:640px){article{padding:4px 12px 14px;font-size:14px} .issue{padding:8px 12px 10px} table{font-size:12px} .page-link{padding:6px 12px;font-size:14px}}
-</style></head><body><header><div class="hwrap"><h1 class="t">美国宏观日报</h1><a class="page-link" href="财经日历.html">← 财经日历</a><a class="page-link" href="index.html">列表页</a><a class="page-link" href="macro.html">宏观周报</a><a class="page-link" href="daily.html">日报总览</a><a class="page-link" href="indicators.html">指标图表</a><a class="page-link" href="daily-br.html">巴西日报</a><a class="page-link" href="daily-ar.html">阿根廷日报</a></div></header><div class="meta">最新一期 2026-11-23 · 周一 · 共 14 期 · 页面生成 2026-11-23（北京时间）</div><div class="stats-h">最新行情 · 数据截至 2026-11-22</div><div class="stats"><div class="stat"><div class="l">标普500</div><div class="v">6,910.39</div><div class="d">点 · 11-20</div></div><div class="stat"><div class="l">纳斯达克</div><div class="v">22,617.73</div><div class="d">点 · 11-20</div></div><div class="stat"><div class="l">道琼斯</div><div class="v">48,147.33</div><div class="d">点 · 11-20</div></div><div class="stat"><div class="l">10年美债</div><div class="v">5.04</div><div class="d">% · 11-19</div></div><div class="stat"><div class="l">美元指数</div><div class="v">103.81</div><div class="d">点 · 11-22</div></div><div class="stat"><div class="l">WTI原油</div><div class="v">82.85</div><div class="d">美元/桶 · 11-22</div></div><div class="stat"><div class="l">COMEX黄金</div><div class="v">3,579.20</div><div class="d">美元/盎司 · 11-22</div></div></div><article><h1>美国宏观日报 2026-11-23</h1>
+</style></head><body><header><div class="hwrap"><h1 class="t">美国宏观日报</h1><a class="page-link" href="财经日历.html">← 财经日历</a><a class="page-link" href="index.html">列表页</a><a class="page-link" href="macro.html">宏观周报</a><a class="page-link" href="daily.html">日报总览</a><a class="page-link" href="indicators.html">指标图表</a><a class="page-link" href="daily-br.html">巴西日报</a><a class="page-link" href="daily-ar.html">阿根廷日报</a></div></header><div class="stripe"></div><div class="meta">最新一期 2026-11-23 · 周一 · 共 14 期 · 页面生成 2026-11-23（北京时间）</div><div class="stats-h">最新行情 · 数据截至 2026-11-22</div><div class="stats"><div class="stat"><div class="l">标普500</div><div class="v">6,910.39</div><div class="d">点 · 11-20</div></div><div class="stat"><div class="l">纳斯达克</div><div class="v">22,617.73</div><div class="d">点 · 11-20</div></div><div class="stat"><div class="l">道琼斯</div><div class="v">48,147.33</div><div class="d">点 · 11-20</div></div><div class="stat"><div class="l">10年美债</div><div class="v">5.04</div><div class="d">% · 11-19</div></div><div class="stat"><div class="l">美元指数</div><div class="v">103.81</div><div class="d">点 · 11-22</div></div><div class="stat"><div class="l">WTI原油</div><div class="v">82.85</div><div class="d">美元/桶 · 11-22</div></div><div class="stat"><div class="l">COMEX黄金</div><div class="v">3,579.20</div><div class="d">美元/盎司 · 11-22</div></div></div><article><h1>美国宏观日报 2026-11-23</h1>
 <blockquote>
-<p><strong>今日更新与关注</strong>
-- 周日夜盘股指期货反弹：标普500期货 <strong>+1.2%–1.3%</strong>、纳指100期货 <strong>+2.0%–2.1%</strong>、道指期货 <strong>+0.6%–0.8%</strong>（约 +400 点）。此前一周道指、纳指创 2020 年 3 月以来最差周，标普创 2025 年 4 月以来最差周（标普 -8.6%、纳指 -10%、道指 -8%）。驱动：甲骨文称 OpenAI 合同资金已全部落实；韩国周日宣布稳市措施；中国三家交易所宣布 11 月 30 日起下调保证金并下调交易费用（Barron's、Investors.com）。<strong>周一亚洲时段早盘涨幅扩大，标普期货约 +1.5%、纳指100期货约 +2.4%–2.5%</strong>（BIT/lookonchain 数据）。
-- 英伟达周末新消息：华尔街日报 11 月 21 日披露芯片走私案细节（Alice Huang 为新加坡 Megaspeed 公开面孔，关键操作者为一名 52 岁中国男子）；董事会已拒绝黄仁勋回归；特朗普呼吁黄仁勋在"重大道歉"后重返 CEO（华尔街日报、Investors.com、华尔街见闻）。
-- 原油与金夜盘分化：面板脚本夜盘快照 WTI <strong>82.89 美元</strong>、布伦特近月 <strong>89.38 美元</strong>，小幅走低；金 <strong>3,574.90 美元（+1.7%）</strong>，此前一周 COMEX 期金跌 9.47%；10 年期美债收益率夜盘约 <strong>4.95%</strong>（面板脚本、Investors.com）。
-- 关注：今晚 <strong>22:45</strong> 标普全球 11 月 PMI 初值；纽约联储主席威廉姆斯讲话（北京时间周二 05:00）；周二 <strong>23:00</strong> 谘商会消费者信心，盘后 Dell、HP、Workday 财报；周三 <strong>21:30</strong> 10 月 PCE、Q3 GDP 二估、耐用品订单与初请集中公布，周四感恩节休市。</p>
+<p><strong>今日更新与关注</strong></p>
+<ul>
+<li>周日夜盘股指期货反弹：标普500期货 <strong>+1.2%–1.3%</strong>、纳指100期货 <strong>+2.0%–2.1%</strong>、道指期货 <strong>+0.6%–0.8%</strong>（约 +400 点）。此前一周道指、纳指创 2020 年 3 月以来最差周，标普创 2025 年 4 月以来最差周（标普 -8.6%、纳指 -10%、道指 -8%）。驱动：甲骨文称 OpenAI 合同资金已全部落实；韩国周日宣布稳市措施；中国三家交易所宣布 11 月 30 日起下调保证金并下调交易费用（Barron's、Investors.com）。<strong>周一亚洲时段早盘涨幅扩大，标普期货约 +1.5%、纳指100期货约 +2.4%–2.5%</strong>（BIT/lookonchain 数据）。</li>
+<li>英伟达周末新消息：华尔街日报 11 月 21 日披露芯片走私案细节（Alice Huang 为新加坡 Megaspeed 公开面孔，关键操作者为一名 52 岁中国男子）；董事会已拒绝黄仁勋回归；特朗普呼吁黄仁勋在"重大道歉"后重返 CEO（华尔街日报、Investors.com、华尔街见闻）。</li>
+<li>原油与金夜盘分化：面板脚本夜盘快照 WTI <strong>82.89 美元</strong>、布伦特近月 <strong>89.38 美元</strong>，小幅走低；金 <strong>3,574.90 美元（+1.7%）</strong>，此前一周 COMEX 期金跌 9.47%；10 年期美债收益率夜盘约 <strong>4.95%</strong>（面板脚本、Investors.com）。</li>
+<li>关注：今晚 <strong>22:45</strong> 标普全球 11 月 PMI 初值；纽约联储主席威廉姆斯讲话（北京时间周二 05:00）；周二 <strong>23:00</strong> 谘商会消费者信心，盘后 Dell、HP、Workday 财报；周三 <strong>21:30</strong> 10 月 PCE、Q3 GDP 二估、耐用品订单与初请集中公布，周四感恩节休市。
+</li>
+</ul>
 </blockquote>
 <h2>一、市场速览</h2>
 <ul>

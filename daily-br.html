@@ -1,23 +1,24 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/><title>巴西宏观日报</title>
 <style>
-:root{--bg:#f6f7f9;--card:#fff;--line:#e6e8ee;--ink:#1a1a1a;--muted:#667;--acc:#1e8449}
+:root{--bg:#f5f1e6;--card:#fff;--line:#e6e8ee;--ink:#1a1a1a;--muted:#667;--acc:#0a5c36;--acc2:#c9a227;--tint:#eaf3ec}
 html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif}
 *,*::before,*::after{box-sizing:border-box}
-header{padding:12px 16px;background:var(--card);border-bottom:1px solid var(--line)}
+header{padding:12px 16px;background:#0a5c36}
+.stripe{height:4px;background:linear-gradient(90deg,#0a5c36 0 45%,#e9b949 45% 65%,#1f4e79 65% 100%)}
 .hwrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px;max-width:1100px;margin:0 auto}
-h1.t{font-size:20px;margin:0;color:var(--acc)} .page-link{color:var(--acc);font-weight:700;text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:4px 10px}
+h1.t{font-size:20px;margin:0;color:#fff} .page-link{color:#fff;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,.45);border-radius:6px;padding:4px 10px}
 .meta{color:var(--muted);font-size:12px;width:min(1100px,calc(100% - 32px));margin:0 auto;padding:10px 0 6px}
 article{background:var(--card);border:1px solid var(--line);border-radius:10px;width:min(1100px,calc(100% - 32px));margin:0 auto 24px;padding:8px 22px 20px;line-height:1.7;font-size:14.5px}
-article h1{font-size:21px} article h2{font-size:18px;margin:22px 0 10px;padding:8px 12px;border-left:4px solid var(--acc);background:#f7f9fc;border-bottom:1px solid var(--line);color:var(--acc)} article h3{font-size:16px}
+article h1{font-size:21px} article h2{font-size:18px;margin:22px 0 10px;padding:8px 12px;border-left:4px solid var(--acc);background:var(--tint);border-bottom:1px solid var(--line);color:var(--acc)} article h3{font-size:16px}
 article strong{color:var(--acc)}
-article blockquote{margin:10px 0;padding:10px 14px;background:#f7f9fc;border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:8px;color:#334}
+article blockquote{margin:10px 0;padding:10px 14px;background:var(--tint);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:8px;color:#334}
 article blockquote p{margin:4px 0} article blockquote ul{margin:4px 0;padding-left:20px;line-height:1.65}
 .note{background:#fff8e6;border:1px solid #ecd9a0;border-left:4px solid #d9a441;border-radius:8px;padding:8px 14px;margin:16px 0}
 .note p{margin:6px 0} .note ul{margin:6px 0;padding-left:20px;line-height:1.65} .note strong{color:#8a6d1b}
 .stats-h{width:min(1100px,calc(100% - 32px));margin:0 auto 8px;font-size:13px;color:var(--muted)}
 .stats{display:flex;flex-wrap:wrap;gap:8px;width:min(1100px,calc(100% - 32px));margin:0 auto 18px}
-.stat{flex:1 1 30%;min-width:104px;max-width:220px;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--acc);border-radius:8px;padding:10px 12px 8px}
+.stat{flex:1 1 30%;min-width:104px;max-width:220px;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--acc2);border-radius:8px;padding:10px 12px 8px}
 .stat .l{font-size:12.5px;color:var(--muted)} .stat .v{font-size:20px;font-weight:700;color:var(--acc);margin:3px 0 1px} .stat .d{font-size:11px;color:var(--muted)}
 article a{color:var(--acc)} article img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:8px;margin:8px 0;background:#fff;display:block} .tw{overflow-x:auto;margin:10px 0}
 table{border-collapse:collapse;font-size:13px;line-height:1.5;min-width:600px}
@@ -34,17 +35,20 @@ h2.sec{font-size:17px;width:min(1100px,calc(100% - 32px));margin:0 auto 10px;col
 .card p{margin:4px 0;line-height:1.65;font-size:14px} .card .d{color:var(--muted);font-size:12.5px}
 .foot{color:var(--muted);font-size:12px;width:min(1100px,calc(100% - 32px));margin:0 auto;padding:0 0 24px}
 @media (max-width:640px){article{padding:4px 12px 14px;font-size:14px} .issue{padding:8px 12px 10px} table{font-size:12px} .page-link{padding:6px 12px;font-size:14px}}
-</style></head><body><header><div class="hwrap"><h1 class="t">巴西宏观日报</h1><a class="page-link" href="财经日历.html">← 财经日历</a><a class="page-link" href="index.html">列表页</a><a class="page-link" href="macro.html">宏观周报</a><a class="page-link" href="daily.html">日报总览</a><a class="page-link" href="indicators.html">指标图表</a><a class="page-link" href="daily-us.html">美国日报</a><a class="page-link" href="daily-ar.html">阿根廷日报</a></div></header><div class="meta">最新一期 2026-11-23 · 周一 · 共 10 期 · 页面生成 2026-11-23（北京时间）</div><div class="stats-h">最新行情 · 数据截至 2026-11-22</div><div class="stats"><div class="stat"><div class="l">DI 2年</div><div class="v">15.26</div><div class="d">% · 11-19</div></div><div class="stat"><div class="l">DI 5年</div><div class="v">15.51</div><div class="d">% · 11-19</div></div><div class="stat"><div class="l">DI 10年</div><div class="v">15.44</div><div class="d">% · 11-19</div></div><div class="stat"><div class="l">DI 10Y-2Y</div><div class="v">18.18</div><div class="d">bp · 11-19</div></div><div class="stat"><div class="l">5年CDS</div><div class="v">175.36</div><div class="d">bp · 11-22</div></div></div><article><h1>巴西宏观日报 2026-11-23</h1>
+</style></head><body><header><div class="hwrap"><h1 class="t">巴西宏观日报</h1><a class="page-link" href="财经日历.html">← 财经日历</a><a class="page-link" href="index.html">列表页</a><a class="page-link" href="macro.html">宏观周报</a><a class="page-link" href="daily.html">日报总览</a><a class="page-link" href="indicators.html">指标图表</a><a class="page-link" href="daily-us.html">美国日报</a><a class="page-link" href="daily-ar.html">阿根廷日报</a></div></header><div class="stripe"></div><div class="meta">最新一期 2026-11-23 · 周一 · 共 10 期 · 页面生成 2026-11-23（北京时间）</div><div class="stats-h">最新行情 · 数据截至 2026-11-22</div><div class="stats"><div class="stat"><div class="l">DI 2年</div><div class="v">15.26</div><div class="d">% · 11-19</div></div><div class="stat"><div class="l">DI 5年</div><div class="v">15.51</div><div class="d">% · 11-19</div></div><div class="stat"><div class="l">DI 10年</div><div class="v">15.44</div><div class="d">% · 11-19</div></div><div class="stat"><div class="l">DI 10Y-2Y</div><div class="v">18.18</div><div class="d">bp · 11-19</div></div><div class="stat"><div class="l">5年CDS</div><div class="v">175.36</div><div class="d">bp · 11-22</div></div></div><article><h1>巴西宏观日报 2026-11-23</h1>
 <p>覆盖：上周五 <strong>11/20（周五）巴西全国假期（黑人意识日），B3 休市</strong>，本期覆盖假期与周末的场外市场与新闻，以及今日（周一）复市前的关键事件。来源：B3（DI 结算，脚本拉取）、BCB、Reuters、ING、BofA、Valor International、InfoMoney、G1、Finnhub、AgWeb、ADM Investor Services、Clayton Pope 日评。CDS 仍取自备用来源（见市场速览说明）；原油周五收盘本期未取到。</p>
 <blockquote>
-<p><strong>今日更新与关注</strong>
-- <strong>更新</strong>：周五 B3 休市，但离岸美元周末仍在 <strong>R$5.94</strong> 附近，周五场外一度触及 <strong>R$5.9495</strong>，为 4 月以来最高；ING 警告美元可能上探 <strong>6.00–6.30</strong> 区间。
-- <strong>更新</strong>：5 年期 CDS 备用来源显示升至约 <strong>175.36bp</strong>（11/21–22），较周四的 <strong>154.43bp</strong> 走阔约 21bp，假期三天风险溢价继续扩大。
-- <strong>更新</strong>：美股周五再挫，标普 500 跌 <strong>3.70%</strong> 进入技术性回调、周跌 <strong>8.6%</strong>，纳指跌 <strong>5.28%</strong>、周跌 <strong>10%</strong>，为 2020 年 3 月以来最差一周；Nvidia 跌 <strong>14.01%</strong>。
-- <strong>更新</strong>：CBOT 1 月大豆周五反弹 <strong>+13.25 美分</strong>至 <strong>US$12.2075/蒲式耳</strong>，站上 200 日均线；12 月玉米跌至 6 月 29 日以来最低 <strong>US$4.345</strong>。
-- <strong>更新</strong>：众议院今日表决财政调整法案 PLP 299（报告人维持参议院文本不变，过关即直送总统签署）；财长人选据路透或于下周决定，Alckmin 与 Fonteles 领先。
-- <strong>关注</strong>：今日 B3 复市是假期后的第一个考验，美元 <strong>R$6.00</strong> 关口与 DI 走势是焦点；众议院表决在北京时间周二 <strong>05:00</strong>（BRT 周一 18:00 特别会议）。
-- <strong>关注</strong>：Petrobras 董事会今日批准 2027–2031 计划，发布会北京时间周二 <strong>03:00</strong>；BCB Focus 今晚约 <strong>19:30</strong> 发布；BCB 上周四干预拍卖的 US$10 亿周二交割。</p>
+<p><strong>今日更新与关注</strong></p>
+<ul>
+<li><strong>更新</strong>：周五 B3 休市，但离岸美元周末仍在 <strong>R$5.94</strong> 附近，周五场外一度触及 <strong>R$5.9495</strong>，为 4 月以来最高；ING 警告美元可能上探 <strong>6.00–6.30</strong> 区间。</li>
+<li><strong>更新</strong>：5 年期 CDS 备用来源显示升至约 <strong>175.36bp</strong>（11/21–22），较周四的 <strong>154.43bp</strong> 走阔约 21bp，假期三天风险溢价继续扩大。</li>
+<li><strong>更新</strong>：美股周五再挫，标普 500 跌 <strong>3.70%</strong> 进入技术性回调、周跌 <strong>8.6%</strong>，纳指跌 <strong>5.28%</strong>、周跌 <strong>10%</strong>，为 2020 年 3 月以来最差一周；Nvidia 跌 <strong>14.01%</strong>。</li>
+<li><strong>更新</strong>：CBOT 1 月大豆周五反弹 <strong>+13.25 美分</strong>至 <strong>US$12.2075/蒲式耳</strong>，站上 200 日均线；12 月玉米跌至 6 月 29 日以来最低 <strong>US$4.345</strong>。</li>
+<li><strong>更新</strong>：众议院今日表决财政调整法案 PLP 299（报告人维持参议院文本不变，过关即直送总统签署）；财长人选据路透或于下周决定，Alckmin 与 Fonteles 领先。</li>
+<li><strong>关注</strong>：今日 B3 复市是假期后的第一个考验，美元 <strong>R$6.00</strong> 关口与 DI 走势是焦点；众议院表决在北京时间周二 <strong>05:00</strong>（BRT 周一 18:00 特别会议）。</li>
+<li><strong>关注</strong>：Petrobras 董事会今日批准 2027–2031 计划，发布会北京时间周二 <strong>03:00</strong>；BCB Focus 今晚约 <strong>19:30</strong> 发布；BCB 上周四干预拍卖的 US$10 亿周二交割。
+</li>
+</ul>
 </blockquote>
 <h2>一、市场速览</h2>
 <ul>

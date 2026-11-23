@@ -1,23 +1,24 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/><title>阿根廷宏观日报</title>
 <style>
-:root{--bg:#f6f7f9;--card:#fff;--line:#e6e8ee;--ink:#1a1a1a;--muted:#667;--acc:#6c3483}
+:root{--bg:#f4f7fb;--card:#fff;--line:#e6e8ee;--ink:#1a1a1a;--muted:#667;--acc:#1f6fb8;--acc2:#d4a017;--tint:#e8f1f9}
 html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif}
 *,*::before,*::after{box-sizing:border-box}
-header{padding:12px 16px;background:var(--card);border-bottom:1px solid var(--line)}
+header{padding:12px 16px;background:#093656}
+.stripe{height:4px;background:linear-gradient(90deg,#75aadb 0 33%,#ffffff 33% 66%,#75aadb 66% 100%)}
 .hwrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px;max-width:1100px;margin:0 auto}
-h1.t{font-size:20px;margin:0;color:var(--acc)} .page-link{color:var(--acc);font-weight:700;text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:4px 10px}
+h1.t{font-size:20px;margin:0;color:#fff} .page-link{color:#fff;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,.45);border-radius:6px;padding:4px 10px}
 .meta{color:var(--muted);font-size:12px;width:min(1100px,calc(100% - 32px));margin:0 auto;padding:10px 0 6px}
 article{background:var(--card);border:1px solid var(--line);border-radius:10px;width:min(1100px,calc(100% - 32px));margin:0 auto 24px;padding:8px 22px 20px;line-height:1.7;font-size:14.5px}
-article h1{font-size:21px} article h2{font-size:18px;margin:22px 0 10px;padding:8px 12px;border-left:4px solid var(--acc);background:#f7f9fc;border-bottom:1px solid var(--line);color:var(--acc)} article h3{font-size:16px}
+article h1{font-size:21px} article h2{font-size:18px;margin:22px 0 10px;padding:8px 12px;border-left:4px solid var(--acc);background:var(--tint);border-bottom:1px solid var(--line);color:var(--acc)} article h3{font-size:16px}
 article strong{color:var(--acc)}
-article blockquote{margin:10px 0;padding:10px 14px;background:#f7f9fc;border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:8px;color:#334}
+article blockquote{margin:10px 0;padding:10px 14px;background:var(--tint);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:8px;color:#334}
 article blockquote p{margin:4px 0} article blockquote ul{margin:4px 0;padding-left:20px;line-height:1.65}
 .note{background:#fff8e6;border:1px solid #ecd9a0;border-left:4px solid #d9a441;border-radius:8px;padding:8px 14px;margin:16px 0}
 .note p{margin:6px 0} .note ul{margin:6px 0;padding-left:20px;line-height:1.65} .note strong{color:#8a6d1b}
 .stats-h{width:min(1100px,calc(100% - 32px));margin:0 auto 8px;font-size:13px;color:var(--muted)}
 .stats{display:flex;flex-wrap:wrap;gap:8px;width:min(1100px,calc(100% - 32px));margin:0 auto 18px}
-.stat{flex:1 1 30%;min-width:104px;max-width:220px;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--acc);border-radius:8px;padding:10px 12px 8px}
+.stat{flex:1 1 30%;min-width:104px;max-width:220px;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--acc2);border-radius:8px;padding:10px 12px 8px}
 .stat .l{font-size:12.5px;color:var(--muted)} .stat .v{font-size:20px;font-weight:700;color:var(--acc);margin:3px 0 1px} .stat .d{font-size:11px;color:var(--muted)}
 article a{color:var(--acc)} article img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:8px;margin:8px 0;background:#fff;display:block} .tw{overflow-x:auto;margin:10px 0}
 table{border-collapse:collapse;font-size:13px;line-height:1.5;min-width:600px}
@@ -34,22 +35,27 @@ h2.sec{font-size:17px;width:min(1100px,calc(100% - 32px));margin:0 auto 10px;col
 .card p{margin:4px 0;line-height:1.65;font-size:14px} .card .d{color:var(--muted);font-size:12.5px}
 .foot{color:var(--muted);font-size:12px;width:min(1100px,calc(100% - 32px));margin:0 auto;padding:0 0 24px}
 @media (max-width:640px){article{padding:4px 12px 14px;font-size:14px} .issue{padding:8px 12px 10px} table{font-size:12px} .page-link{padding:6px 12px;font-size:14px}}
-</style></head><body><header><div class="hwrap"><h1 class="t">阿根廷宏观日报</h1><a class="page-link" href="财经日历.html">← 财经日历</a><a class="page-link" href="index.html">列表页</a><a class="page-link" href="macro.html">宏观周报</a><a class="page-link" href="daily.html">日报总览</a><a class="page-link" href="indicators.html">指标图表</a><a class="page-link" href="daily-us.html">美国日报</a><a class="page-link" href="daily-br.html">巴西日报</a></div></header><div class="meta">最新一期 2026-11-23 · 周一 · 共 10 期 · 页面生成 2026-11-23（北京时间）</div><div class="stats-h">最新行情 · 数据截至 2026-11-22</div><div class="stats"><div class="stat"><div class="l">官方汇率</div><div class="v">1,600</div><div class="d">比索 · 11-22</div></div><div class="stat"><div class="l">蓝筹汇率</div><div class="v">1,675</div><div class="d">比索 · 11-22</div></div><div class="stat"><div class="l">国家风险</div><div class="v">1,070</div><div class="d">bp · 11-20</div></div><div class="stat"><div class="l">IPC环比</div><div class="v">2.20</div><div class="d">% · 10-31</div></div><div class="stat"><div class="l">TAMAR</div><div class="v">23.69</div><div class="d">% · 11-19</div></div></div><article><h1>阿根廷宏观日报 2026-11-23</h1>
+</style></head><body><header><div class="hwrap"><h1 class="t">阿根廷宏观日报</h1><a class="page-link" href="财经日历.html">← 财经日历</a><a class="page-link" href="index.html">列表页</a><a class="page-link" href="macro.html">宏观周报</a><a class="page-link" href="daily.html">日报总览</a><a class="page-link" href="indicators.html">指标图表</a><a class="page-link" href="daily-us.html">美国日报</a><a class="page-link" href="daily-br.html">巴西日报</a></div></header><div class="stripe"></div><div class="meta">最新一期 2026-11-23 · 周一 · 共 10 期 · 页面生成 2026-11-23（北京时间）</div><div class="stats-h">最新行情 · 数据截至 2026-11-22</div><div class="stats"><div class="stat"><div class="l">官方汇率</div><div class="v">1,600</div><div class="d">比索 · 11-22</div></div><div class="stat"><div class="l">蓝筹汇率</div><div class="v">1,675</div><div class="d">比索 · 11-22</div></div><div class="stat"><div class="l">国家风险</div><div class="v">1,070</div><div class="d">bp · 11-20</div></div><div class="stat"><div class="l">IPC环比</div><div class="v">2.20</div><div class="d">% · 10-31</div></div><div class="stat"><div class="l">TAMAR</div><div class="v">23.69</div><div class="d">% · 11-19</div></div></div><article><h1>阿根廷宏观日报 2026-11-23</h1>
 <p>覆盖：上一交易日 <strong>11/20（周五）</strong>。来源：La Nación、Infobae、Ámbito、Puntal、Río Negro、BAE Negocios、El Objetivo、Rava、INDEC、BCRA、dolarapi/argentinadatos、Reuters、Capital.com。</p>
 <p>注：<strong>今天（周一 11/23）为全国假日（主权日移假），阿根廷市场休市</strong>，周二 11/24 恢复交易。</p>
 <blockquote>
 <p><strong>今日更新与关注</strong></p>
+<p><strong>今天更新了什么：</strong></p>
+<ul>
+<li><strong>风险国破千点至 1,070 点</strong>：单日 <strong>+139 点（+14.9%）</strong>，为 13 个月来最高；本周累计 <strong>+230 点（+28%）</strong>；美元债 Globales 单日跌幅最高 <strong>4.5%</strong>，本周约 <strong>−7%</strong>。（La Nación、Rava、Infobae）</li>
+<li><strong>美元全线再创名义新高</strong>：官方零售 <strong>1,550 / 1,600（+15）</strong>，批发价 <strong>1,580（+15，+1%）</strong>，本周累计 <strong>+36.50（+2.4%）</strong>，为 2025 年 4 月以来最大单周涨幅；蓝筹 <strong>1,675（+35，+2.1%）</strong>，本周累计 <strong>+115</strong>；<strong>MEP 约 1,678（+2.1%）</strong>、<strong>CCL 约 1,782（+2.2%）</strong>，价差扩至 <strong>12.8%</strong>，为 2025 年 4 月以来最宽。（Puntal、El Objetivo、La Nación）</li>
+<li><strong>10 月贸易顺差创纪录</strong>：INDEC 周四公布，10 月顺差 <strong>33.94 亿美元</strong>，远超市场预期的 20.5 亿美元；出口 <strong>100.61 亿美元（+26.4%）</strong> 创历史纪录，进口 <strong>66.68 亿美元（−6.7%）</strong>；前 10 个月出口 <strong>873.28 亿美元</strong>，已超过 2025 年全年。（INDEC、Reuters、La Nación）</li>
+<li><strong>BCRA 周五零购汇</strong>：本周四个交易日仅吸纳 <strong>1.21 亿美元</strong>，11 月累计购汇 <strong>3.44 亿美元</strong>，为年内最慢节奏。（Río Negro、Infobae、BAE Negocios）</li>
+</ul>
+<p><strong>需要关注什么：</strong></p>
+<ul>
+<li><strong>今天（周一 11/23）阿根廷休市</strong>；<strong>周二 11/24</strong> 恢复交易，政府召开政治协调会（Karina Milei 主持），为预算表决协调票数。</li>
+<li><strong>周三 11/25</strong>：众议院 2027 年预算目标表决日；内阁首席部长 Santilli 向参议院作报告。</li>
+<li><strong>周四 11/26</strong>：财政部大额招标，私人持有到期约 <strong>20 万亿比索</strong>；参议院拟表决选举改革（暂停 PASO）。</li>
+<li><strong>12 月初</strong>：FMI 董事会审议第三次审查（约 <strong>8.5 亿美元</strong>拨付）；<strong>2027 年 1 月 9 日</strong>到期约 <strong>44 亿美元</strong>。
+</li>
+</ul>
 </blockquote>
-<p><strong>今天更新了什么：</strong>
-- <strong>风险国破千点至 1,070 点</strong>：单日 <strong>+139 点（+14.9%）</strong>，为 13 个月来最高；本周累计 <strong>+230 点（+28%）</strong>；美元债 Globales 单日跌幅最高 <strong>4.5%</strong>，本周约 <strong>−7%</strong>。（La Nación、Rava、Infobae）
-- <strong>美元全线再创名义新高</strong>：官方零售 <strong>1,550 / 1,600（+15）</strong>，批发价 <strong>1,580（+15，+1%）</strong>，本周累计 <strong>+36.50（+2.4%）</strong>，为 2025 年 4 月以来最大单周涨幅；蓝筹 <strong>1,675（+35，+2.1%）</strong>，本周累计 <strong>+115</strong>；<strong>MEP 约 1,678（+2.1%）</strong>、<strong>CCL 约 1,782（+2.2%）</strong>，价差扩至 <strong>12.8%</strong>，为 2025 年 4 月以来最宽。（Puntal、El Objetivo、La Nación）
-- <strong>10 月贸易顺差创纪录</strong>：INDEC 周四公布，10 月顺差 <strong>33.94 亿美元</strong>，远超市场预期的 20.5 亿美元；出口 <strong>100.61 亿美元（+26.4%）</strong> 创历史纪录，进口 <strong>66.68 亿美元（−6.7%）</strong>；前 10 个月出口 <strong>873.28 亿美元</strong>，已超过 2025 年全年。（INDEC、Reuters、La Nación）
-- <strong>BCRA 周五零购汇</strong>：本周四个交易日仅吸纳 <strong>1.21 亿美元</strong>，11 月累计购汇 <strong>3.44 亿美元</strong>，为年内最慢节奏。（Río Negro、Infobae、BAE Negocios）</p>
-<p><strong>需要关注什么：</strong>
-- <strong>今天（周一 11/23）阿根廷休市</strong>；<strong>周二 11/24</strong> 恢复交易，政府召开政治协调会（Karina Milei 主持），为预算表决协调票数。
-- <strong>周三 11/25</strong>：众议院 2027 年预算目标表决日；内阁首席部长 Santilli 向参议院作报告。
-- <strong>周四 11/26</strong>：财政部大额招标，私人持有到期约 <strong>20 万亿比索</strong>；参议院拟表决选举改革（暂停 PASO）。
-- <strong>12 月初</strong>：FMI 董事会审议第三次审查（约 <strong>8.5 亿美元</strong>拨付）；<strong>2027 年 1 月 9 日</strong>到期约 <strong>44 亿美元</strong>。</p>
 <h2>一、市场速览</h2>
 <ul>
 <li><strong>美元官方（BNA）</strong>：<strong>1,550 / 1,600（+15，+0.95%）</strong>，再创名义新高；BCRA 公布的银行平均价 <strong>1,601.32</strong>。（Puntal、Río Negro、Infobae）</li>
