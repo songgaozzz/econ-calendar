@@ -7,8 +7,16 @@ header{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 16px
 h1.t{font-size:20px;margin:0;color:var(--acc)} .page-link{color:var(--acc);font-weight:700;text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:4px 10px}
 .meta{color:var(--muted);font-size:12px;padding:10px 16px 6px}
 article{background:var(--card);border:1px solid var(--line);border-radius:10px;margin:0 16px 24px;padding:8px 22px 20px;line-height:1.7;font-size:14.5px;max-width:1100px}
-article h1{font-size:21px} article h2{font-size:18px;border-bottom:1px solid var(--line);padding-bottom:4px} article h3{font-size:16px}
-article blockquote{margin:8px 0;padding:6px 12px;background:#f7f9fc;border-left:3px solid var(--acc);color:#334}
+article h1{font-size:21px} article h2{font-size:18px;margin:22px 0 10px;padding:8px 12px;border-left:4px solid var(--acc);background:#f7f9fc;border-bottom:1px solid var(--line);color:var(--acc)} article h3{font-size:16px}
+article strong{color:var(--acc)}
+article blockquote{margin:10px 0;padding:10px 14px;background:#f7f9fc;border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:8px;color:#334}
+article blockquote p{margin:4px 0} article blockquote ul{margin:4px 0;padding-left:20px;line-height:1.65}
+.note{background:#fff8e6;border:1px solid #ecd9a0;border-left:4px solid #d9a441;border-radius:8px;padding:8px 14px;margin:16px 0}
+.note p{margin:6px 0} .note ul{margin:6px 0;padding-left:20px;line-height:1.65} .note strong{color:#8a6d1b}
+.stats-h{margin:0 16px 8px;font-size:13px;color:var(--muted)}
+.stats{display:flex;flex-wrap:wrap;gap:8px;margin:0 16px 18px}
+.stat{flex:1 1 30%;min-width:104px;max-width:220px;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--acc);border-radius:8px;padding:10px 12px 8px}
+.stat .l{font-size:12.5px;color:var(--muted)} .stat .v{font-size:20px;font-weight:700;color:var(--acc);margin:3px 0 1px} .stat .d{font-size:11px;color:var(--muted)}
 article a{color:var(--acc)} article img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:8px;margin:8px 0;background:#fff;display:block} .tw{overflow-x:auto;margin:10px 0}
 table{border-collapse:collapse;font-size:13px;line-height:1.5;min-width:600px}
 th,td{border:1px solid var(--line);padding:5px 8px;vertical-align:top;text-align:left} th{background:#d9e1f2} tr:nth-child(even) td{background:#fafbfd}
@@ -24,52 +32,79 @@ h2.sec{font-size:17px;margin:0 16px 10px;color:var(--acc)}
 .card p{margin:4px 0;line-height:1.65;font-size:14px} .card .d{color:var(--muted);font-size:12.5px}
 .foot{color:var(--muted);font-size:12px;padding:0 16px 24px}
 @media (max-width:640px){article{margin:0 6px 16px;padding:4px 12px 14px;font-size:14px} .issue,.cards{margin-left:6px;margin-right:6px} .issue{padding:8px 12px 10px} header,.meta{padding-left:10px;padding-right:10px} table{font-size:12px} .page-link{padding:6px 12px;font-size:14px}}
-</style></head><body><header><h1 class="t">美国宏观日报</h1><a class="page-link" href="财经日历.html">← 财经日历</a><a class="page-link" href="index.html">列表页</a><a class="page-link" href="macro.html">宏观周报</a><a class="page-link" href="daily.html">日报总览</a><a class="page-link" href="indicators.html">指标图表</a><a class="page-link" href="daily-br.html">巴西日报</a><a class="page-link" href="daily-ar.html">阿根廷日报</a></header><div class="meta">最新一期 2026-11-22 · 周日 · 共 13 期 · 页面生成 2026-11-23（北京时间）</div><article><p>美国宏观日报 2026-11-22（周日·周末版）</p>
-<p>今日更新与关注
-- 周末无美股交易；周五暴跌后美股年内涨幅几乎吐尽：标普500年内仅 <strong>+1%</strong>、道指 <strong>+0.2%</strong>、纳指年内 <strong>-2.7%</strong>（FactSet，经 MarketWatch）；标普500成分股中 <strong>64%</strong> 较纪录高点跌 20% 以上，信息技术板块这一比例达 <strong>87%</strong>（道琼斯市场数据）。
-- 霍尔木兹海峡周六再升级：英方海事机构通报两起袭击油轮事件；金融时报称 11 月第三周过境船只减少 <strong>15%</strong>，Rystad 称 11 月前两周中东石油出口约 <strong>1,300 万桶/日</strong>、较 10 月降约 20%；伊朗称满足条件可两小时重开海峡，特朗普周六称要达成“永久协议”。
-- 英伟达周末跟进：盘后反弹至 <strong>128.14 美元（+2.08%）</strong>；加州总检察长周四已发出调查传票；黄仁勋定于 <strong>12 月 1 日</strong>赴国会作证；司法部正审查 129 亿美元收购 Hugging Face 交易。
-- 关注：周一（<strong>11/23</strong>）22:45 标普全球 11 月 PMI 初值；周三（<strong>11/25</strong>）21:30 10 月 PCE、Q3 GDP 二估、初请与耐用品订单集中公布，次日 03:00 褐皮书；周四感恩节休市，周五提前收盘；美联储噤声期 <strong>11 月 28 日</strong>开始。</p>
-<p>一、市场速览（周五 11/20 收盘回顾，详见昨日日报；以下为新增口径）
-- 美股：道指 <strong>48,147.33（-1.93%）</strong>，标普500 <strong>6,910.39（-3.70%）</strong>，纳指 <strong>22,617.73（-5.28%）</strong>；标普较 10 月 6 日高点回落 <strong>11.6%</strong>，与道指双双进入修正；纳指100盘中一度跌入熊市区间；纳指成分股本周合计蒸发逾 <strong>4 万亿美元</strong>市值（UDN/经济日报、路透）。
-- 波动率：VIX 收 <strong>35.89</strong>（面板脚本），盘中一度触及 <strong>40</strong>，为 2025 年 4 月以来最高（UDN/路透）；标普500相对强弱指标（RSI）周五降至 30 以下，进入超卖区（路透经 UDN）。
-- 美债：10 年期 <strong>4.92%（-12bp）</strong>，2 年期 <strong>4.63%</strong>，30 年期 <strong>5.31%</strong>；美元指数 <strong>103.84</strong>，日元、瑞郎避险走强，美元兑日元约 158.5–158.7。
-- 原油：WTI <strong>$83.62（+0.5%）</strong>；布伦特 1 月合约 <strong>$92.57（+0.6%）</strong>，霍尔木兹紧张局势支撑油价。
-- 金与加密：COMEX 金 <strong>$3,539.00（-4.0%）</strong>；比特币约 <strong>5.8 万美元（-5% 左右）</strong>，盘中一度触及两年多低点（彭博经 Swissinfo、UDN）。</p>
-<p>二、宏观与 Fed
-- 密歇根大学 11 月终值回顾（周五已报）：消费者信心 <strong>51.5</strong>（初值 51.0，10 月 48.0），一年通胀预期降至 <strong>3.7%</strong>（初值 4.3%，10 月 4.7%），五年预期 <strong>3.3%</strong>。
-- 加息定价：下一次 FOMC 会议 <strong>12 月 9 日</strong>（有 SEP 与点阵图）；CME FedWatch 显示市场倾向 12 月、1 月连续加息（MarketWatch/Morningstar）；12 月加息 25bp 的概率约 <strong>94%–97%</strong>（昨日，巴伦周刊、FXStreet）。美联储理事库克周五主张更紧缩的政策立场（InvestingLive，见昨日日报）。
-- 特朗普再批美联储：周五称若降息，美国 GDP 可达 <strong>15%–20%</strong>，以印度 7% 的增长为例，指责美联储高利率拖累增长；周五白宫记者会亦称利率过高（WIO、Moneycontrol）。
-- 301 调查：美国贸易代表格里尔表示，预计“很快”完成依据 301 条款展开的对华产能过剩调查，可能为明年 1 月告终的美中贸易休兵增添变数（UDN/经济日报）。
-- 财长贝森特：称“适当的芯片管制措施已经到位，远程访问也已经受到限制”，认为不需要再对较旧款的英伟达芯片销往中国加码限制，H200 芯片可以卖给中国（UDN）。</p>
-<p>三、地缘与能源（周六升级）
-- 袭船：英国海上贸易行动办公室（UKMTO）周六通报，阿曼哈萨布港附近 05:00 与 05:50 UTC 发生两起针对油轮的袭击，无人员伤亡；伊朗塔斯尼姆通讯社称一艘“违规油轮”在哈萨布港入口触雷爆炸；伊朗革命卫队称第二艘油轮触雷起火（伊方说法，未独立核实）（Rudaw、Times of India）。
-- 流量下滑：金融时报周六报道，11 月第三周通过霍尔木兹海峡的船只数量减少 <strong>15%</strong>；Rystad Energy 称 11 月前两周中东石油出口约 <strong>1,300 万桶/日</strong>，较 10 月的 1,500–1,600 万桶/日降约 20%，仍相当于战前水平的约 80%，多数在美军保护下通行；Kpler 追踪（经彭博 11 月 19 日）显示霍尔木兹原油流量 11 月 10 日约 <strong>1,000 万桶/日</strong>，月初为 1,340 万桶/日；UKMTO 周报（截至 11 月 18 日一周）出境 115 艘次、入境 148 艘次，较前一周 139/169 下降，约为冲突前水平的 65% 以下（金融时报经多家、Rystad、Kpler）。
-- 伊朗开价：外长阿拉格奇称，若美方满足条件，伊朗可将重开海峡的方案从 7 天缩短至 <strong>2 小时</strong>；条件包括全面停战、解除经济封锁、解冻被冻结资产；同时拒绝将 60% 浓缩铀转移出境（Moneycontrol）。
-- 美方表态：特朗普周六对福克斯新闻称，打算与伊朗达成一项“永久协议”；周五称“伊朗人想要协议，但不是我能接受的协议”；并称美国“完全控制霍尔木兹海峡”、过去三天海峡原油流量创纪录新高——该说法与船运追踪数据相左，请注意区分（Ynet、Webull 汇总）。
-- 巴林与无人机：伊朗革命卫队周六晚称向巴林 Al-Riffa 与 Awali 基地的美军爱国者雷达系统发射导弹与无人机；巴林称伊朗袭击造成一处工业设施起火，无人员伤亡；革命卫队另称击落第 58 架美军 MQ-9 无人机（伊方说法，美方此前曾否认类似说法，未获证实）（Ynet、Times of India、WIO）。
-- 沙特：胡塞武装继续向沙特发射导弹与无人机，沙特称已拦截（美联社，周五）。</p>
-<p>四、AI 与资本开支
-- 英伟达：周五收 <strong>125.53 美元（-14.0%）</strong>，本周 <strong>-23%</strong>，为 2008 年以来最差单周，连续第七周下跌；市值约 <strong>3.03 万亿美元</strong>，跌至第四位（苹果、微软、Alphabet 之后）；盘后回升至 <strong>128.14 美元（+2.08%）</strong>（Barron's、Fool、Coin Republic）。
-- SEC 调查跟进：调查焦点与开始时间未定；市场关注的可能方向包括约 <strong>1,040 亿美元</strong> 2025 年收入经新加坡子公司入账（金融时报）、按客户总部所在地而非账单地划分地区收入、应收账款约 64 天等——均为分析推测，非官方确认（Dealroom、Fool）。
-- 加州总检察长邦塔周四发出调查传票，调查英伟达或黄仁勋是否让先进芯片流入中国、是否误导投资者（Fool、Barron's）。
-- 黄仁勋定于 <strong>12 月 1 日</strong>赴国会作证，接受涉国家安全与疑似中国情报人员关系的质询；司法部正审查英伟达 <strong>129 亿美元</strong>收购 Hugging Face 交易（Barron's、路透经 Fool）。
-- 特朗普周五呼吁黄仁勋回归，称美国是“给第二次机会的国家”，并批评英伟达新领导层（WIO）。
-- 特朗普威胁对在海外建设数据中心的美国企业征收“巨额税”，以对抗中国（Moneycontrol）。
-- Anthropic：周五收 <strong>88.91 美元（-8.5%，美联社）</strong>，仍高于 83 美元发行价，上市首日涨幅几乎吐光（UDN、New Indian Express）。
-- 估值与技术面：标普500信息技术板块远期市盈率 <strong>16.3 倍</strong>（周四收盘），为 2020 年 3 月疫情以来最低（FactSet，经 MarketWatch）；台积电 ADR <strong>-9.5%</strong>，Sandisk -16%、美光 -14%、博通约 -12%（UDN）。市场观点（分析）：中期选举后被视为 AI 派对“撤走酒杯”的时刻；标普跌破 200 日均线触发趋势策略减码，放大了卖压；分析师提醒，即使出现强劲反弹也不代表跌势结束（MarketWatch、UDN）。</p>
-<p>五、谷物台（CBOT 周五收盘，昨日已报；周末无新交易）
-- 周五 CBOT 收盘：1 月大豆 <strong>1,220.75 美分（+13.25）</strong>，12 月豆粕 <strong>$341.00（+$8.70）</strong>，12 月豆油 <strong>59.81 美分（-0.28）</strong>；12 月玉米 <strong>434.25 美分（-4.50）</strong>；12 月小麦 <strong>574.25 美分（-4.00）</strong>（Brownfield、CME）。
-- 本期说明：Walk-Squawk Morning Wire <strong>11/20 期与 11/21 期截至发稿均未到邮箱</strong>（Gmail 核查最新仍为 11/19 期），连续两日缺刊；Axios Markets 自 11 月 16 日后亦无新刊。本期谷物台以 CBOT 收盘为准。CBOT 周日夜盘北京时间周一 06:00 开盘后才有新价。</p>
-<p>六、今明日程（北京时间）
-- 11/23（周一）：<strong>22:45</strong> 标普全球 11 月美国制造业/服务业 PMI 初值；纽约联储主席威廉姆斯讲话；美股正常交易；Dell、HP、Best Buy 等财报周。
-- 11/24（周二）：<strong>23:00</strong> 谘商会 11 月消费者信心指数（10 月为 91.7）；Best Buy、Dollar Tree 等财报，盘后 Dell、HP、Workday。
-- 11/25（周三，感恩节前最后完整交易日）：<strong>21:30</strong> 10 月 PCE（预期环比 +0.3%）、Q3 GDP 二估（预期 3.5%）、耐用品订单（预期 +0.5%）、初请失业金（因假期提前）；<strong>次日 03:00</strong> 美联储褐皮书；盘前 Deere 财报。
-- 11/26（周四）：感恩节，美股、美债休市。
-- 11/27（周五）：美股提前至 <strong>次日 02:00</strong>（美东 13:00）收盘，黑五消费数据受关注，流动性偏薄。
-- 11/28（周六）：美联储官员噤声期开始；12 月 4 日 11 月非农；12 月 8–9 日 FOMC 会议；12 月 10 日 11 月 CPI。</p>
-<p>来源说明：周五收盘指数、美债、美元、金价、油价取自面板脚本（Yahoo 行情、财政部每日收益率曲线，11 月 20 日数据，昨日已核实），周末无新增交易数据，面板脚本今日未重跑；年内涨跌幅、成分股跌幅、板块市盈率取自 MarketWatch/Morningstar（FactSet、道琼斯市场数据）；英伟达跟进取自 Barron's、Fool、Dealroom、Coin Republic；霍尔木兹周六动态取自金融时报（经 Rudaw、Estrecho Ormuz）、Rystad Energy、Kpler（经彭博）、UKMTO、Moneycontrol、Ynet、Times of India；特朗普表态取自 WIO、Moneycontrol、Ynet；301 调查与贝森特表态取自 UDN/经济日报；Walk-Squawk 11/20 与 11/21 期均未到邮箱（Gmail 核查最新仍为 11/19 期），Axios 自 11 月 16 日后无新刊；TradingCode 页面仍显示周五收盘前数据（VIX 28.4、10 年期 5.05%），与已核实收盘不符，本期未采用。更正：Anthropic 周五收盘价以美联社通稿 <strong>88.91 美元（-8.5%）</strong>为准，昨日部分行情终端显示的 88.30 美元疑为盘中价；VIX 收盘以面板脚本 <strong>35.89</strong> 为准（UDN 称 37.66，口径不一，盘中一度触及 40 各源一致）。</p>
-<p>备注（主观判断，非原文）
-- 周末霍尔木兹升级，但油价周五并未大涨（布伦特 1 月合约仅 +0.6%），市场定价仍是“袭扰不封锁”；但若周一开盘后袭船频率继续上升，油价与豆油可能补涨，豆系需盯 WTI/布伦特缺口与美湾出口装船节奏。
-- 英伟达盘后 +2% 只是技术性喘息：SEC 焦点未明、国会作证在即，波动未完；但信息技术板块远期市盈率 16.3 倍已是 2020 年 3 月以来最低，估值压缩已相当充分，接下来决定方向的是 11 月 25 日 PCE 与 12 月 FOMC 的加息幅度，而非财报。
-- 感恩节周流动性偏薄，周三 21:30 四项数据同分钟公布，波动可能放大；周五半日交易勿追涨杀跌。豆系周五逆势反弹、守住 200 日均线附近，出口销售仍强，短线 12.15 美元仍是多空分水岭（见昨日日报）。</p></article><h2 class="sec">近几期</h2><div class="issue"><h3><span class="d">2026-11-21 · 周六</span>　美国宏观日报 2026-11-21</h3><ul><li>周五美股暴跌收官：道指 48,147.33（-1.93%，-949.73 点），五连跌，进入技术性修正（较 8 月纪录高点跌超 10%）；标普500 6,910.39（-3.70%，-265.44 点），七连跌、为 2020 年疫情暴发以来最长连跌，同样进入修正（较 10 月 6…</li><li>导火索是英伟达：路透周五美东时间 14:16 报道，SEC 执法人员正在审查英伟达潜在的会计问题（消息源为两名知情人士，审查开始时间与具体事项未定，SEC 不予置评），英伟达收盘暴跌 13.8%–14.0% 至 125.53 美元，创 52 周新低，单日市值蒸发约 4,910 亿…</li></ul></div><div class="issue"><h3><span class="d">2026-11-20 · 周五</span>　美国宏观日报 2026-11-20</h3><ul><li>周四美股虎头蛇尾：早盘受 Anthropic 上市提振走高，午后跳水，三大指数均跌超 2%——道指 49,097.06（-2.19%，-1,101.11 点），连续第四个交易日跌超 1%；标普500 7,175.83（-2.02%） 六连跌；纳指 23,879.20（-2.25%…</li><li>就业与制造业数据双双弱于预期：截至 11 月 14 日当周初请失业金 20.3 万人（预期约 19.7 万人，前值修正后 20.2 万人）；截至 11 月 7 日当周续请 176.3 万人（+7.0 万人，高于约 171 万人的预期）；11 月费城联储制造业指数 6.3（前值 2…</li></ul></div><div class="issue"><h3><span class="d">2026-11-19 · 周四</span>　美国宏观日报 2026-11-19</h3><ul><li>周三美股分化：道指 50,198.17（-1.11%，-561.25 点），连续第三个交易日跌超 1%；标普500 7,323.63（-0.23%） 五连跌；纳指 24,429.88（+0.42%） 逆势收涨；英伟达财报大超预期却收跌 $150.96（-2.89%），五日累计跌…</li><li>10 月 FOMC 会议纪要（北京时间今日凌晨 03:00 公布）：几乎所有官员认为 12 月进一步加息&quot;可能是适当的&quot;，少数人称若通胀数据令人失望，12 月可考虑加息超过 25bp；沃勒周三接受 CNBC 采访时仍主张考虑 12 月加息 50bp；CME FedWatch 显示…</li></ul></div><div class="issue"><h3><span class="d">2026-11-18 · 周三</span>　美国宏观日报 2026-11-18</h3><ul><li>周二美股四连跌：道指 50,759.42（-1.64%），标普500 7,340.53（-1.03%），纳指 24,328.38（-0.74%）；标普创 7 月以来最低收盘，纳指盘中触及 4 月以来最低；VIX 25.46（+11.1%），盘中一度冲至 27.73（面板脚本、Ch…</li><li>英伟达盘后财报大超预期：Q3 营收 1158 亿美元（预期约 1090 亿），调整后 EPS 2.68 美元（预期 2.47 美元），Q4 指引 1300 亿美元（预期约 1250 亿），盘后一度 +4%（CNBC、MLQ）。</li></ul></div><div class="issue"><h3><span class="d">2026-11-17 · 周二</span>　美国宏观日报 2026-11-17</h3><ul><li>周一美股三连跌：标普500 7,416.59（-1.92%），纳指 24,509.76（-2.49%），道指 51,608.17（-1.41%），为 6 月以来最大三日跌幅；VIX 22.91（+18.7%），盘中一度冲至 24.05（Chosun/BNN、面板脚本）。</li><li>英伟达周一再跌 4.12% 至 $156.14，费城半导体指数跌 5.3%；美国商务部出台新规，限制中国经第三国数据中心获取先进 AI 芯片，涉及新加坡、马来西亚、泰国、印尼、巴西五国（Chosun、路透）。</li></ul></div><div class="issue"><h3><span class="d">2026-11-16 · 周一</span>　美国宏观日报 2026-11-16</h3><ul><li>堪萨斯城联储主席施密德周日称，美联储在通胀问题上&quot;还有工作要做&quot;，通胀&quot;令人不安地高于 2% 目标、且方向错误&quot;；他未明确呼吁进一步加息，但称美联储有工具、也有责任应对过热的价格压力（路透，11/15）。</li><li>比特币周末跳水：周六一度跌至约 $65,020，周日凌晨一度跌破 $62,000、创三个月新低，24 小时杠杆爆仓约 $20 亿；美国现货比特币 ETF 已连续 7 个交易日净流出、累计约 $19.1 亿；周日晚回升至约 $65,140，全周跌幅约 13%、为 6 月以来最差单周…</li></ul></div><div class="issue"><h3><span class="d">2026-11-15 · 周日</span>　美国宏观日报 2026-11-15</h3><ul><li>FAA 全国停飞已解除：周五美东时间 20:15 停飞令解除，周六上午交通部长达菲称航空运行已&quot;全面恢复&quot;，但周六仍有超 2,500 架次取消、恢复预计持续至感恩节前；国土安全部称无证据表明与网络攻击有关。</li><li>波士顿联储主席柯林斯周六表态支持&quot;稳步、渐进&quot;的加息路径，认为通胀高企且扩散、就业市场稳定，风险双向；CME FedWatch 周六上午显示 12 月加息 25bp 概率 88.5%、加息 50bp 概率 11.5%，维持利率概率为零。</li></ul></div><div class="archive">更早往期：2026-11-14 · 2026-11-13 · 2026-11-12 · 2026-11-11 · 2026-11-10</div><div class="foot">内容为日报原文 · 每工作日 07:30 更新 · 往期全文见工作区存档</div></body></html>
+</style></head><body><header><h1 class="t">美国宏观日报</h1><a class="page-link" href="财经日历.html">← 财经日历</a><a class="page-link" href="index.html">列表页</a><a class="page-link" href="macro.html">宏观周报</a><a class="page-link" href="daily.html">日报总览</a><a class="page-link" href="indicators.html">指标图表</a><a class="page-link" href="daily-br.html">巴西日报</a><a class="page-link" href="daily-ar.html">阿根廷日报</a></header><div class="meta">最新一期 2026-11-23 · 周一 · 共 14 期 · 页面生成 2026-11-23（北京时间）</div><div class="stats-h">最新行情 · 数据截至 2026-11-22</div><div class="stats"><div class="stat"><div class="l">标普500</div><div class="v">6,910.39</div><div class="d">点 · 11-20</div></div><div class="stat"><div class="l">纳斯达克</div><div class="v">22,617.73</div><div class="d">点 · 11-20</div></div><div class="stat"><div class="l">道琼斯</div><div class="v">48,147.33</div><div class="d">点 · 11-20</div></div><div class="stat"><div class="l">10年美债</div><div class="v">5.04</div><div class="d">% · 11-19</div></div><div class="stat"><div class="l">美元指数</div><div class="v">103.81</div><div class="d">点 · 11-22</div></div><div class="stat"><div class="l">WTI原油</div><div class="v">82.85</div><div class="d">美元/桶 · 11-22</div></div><div class="stat"><div class="l">COMEX黄金</div><div class="v">3,579.20</div><div class="d">美元/盎司 · 11-22</div></div></div><article><h1>美国宏观日报 2026-11-23</h1>
+<blockquote>
+<p><strong>今日更新与关注</strong>
+- 周日夜盘股指期货反弹：标普500期货 <strong>+1.2%–1.3%</strong>、纳指100期货 <strong>+2.0%–2.1%</strong>、道指期货 <strong>+0.6%–0.8%</strong>（约 +400 点）。此前一周道指、纳指创 2020 年 3 月以来最差周，标普创 2025 年 4 月以来最差周（标普 -8.6%、纳指 -10%、道指 -8%）。驱动：甲骨文称 OpenAI 合同资金已全部落实；韩国周日宣布稳市措施；中国三家交易所宣布 11 月 30 日起下调保证金并下调交易费用（Barron's、Investors.com）。<strong>周一亚洲时段早盘涨幅扩大，标普期货约 +1.5%、纳指100期货约 +2.4%–2.5%</strong>（BIT/lookonchain 数据）。
+- 英伟达周末新消息：华尔街日报 11 月 21 日披露芯片走私案细节（Alice Huang 为新加坡 Megaspeed 公开面孔，关键操作者为一名 52 岁中国男子）；董事会已拒绝黄仁勋回归；特朗普呼吁黄仁勋在"重大道歉"后重返 CEO（华尔街日报、Investors.com、华尔街见闻）。
+- 原油与金夜盘分化：面板脚本夜盘快照 WTI <strong>82.89 美元</strong>、布伦特近月 <strong>89.38 美元</strong>，小幅走低；金 <strong>3,574.90 美元（+1.7%）</strong>，此前一周 COMEX 期金跌 9.47%；10 年期美债收益率夜盘约 <strong>4.95%</strong>（面板脚本、Investors.com）。
+- 关注：今晚 <strong>22:45</strong> 标普全球 11 月 PMI 初值；纽约联储主席威廉姆斯讲话（北京时间周二 05:00）；周二 <strong>23:00</strong> 谘商会消费者信心，盘后 Dell、HP、Workday 财报；周三 <strong>21:30</strong> 10 月 PCE、Q3 GDP 二估、耐用品订单与初请集中公布，周四感恩节休市。</p>
+</blockquote>
+<h2>一、市场速览</h2>
+<ul>
+<li>美股（周五 11/20 收盘）：道指 <strong>48,147.33（-1.93%）</strong>，标普500 <strong>6,910.39（-3.70%）</strong>，纳指 <strong>22,617.73（-5.28%）</strong>，罗素2000 <strong>2,581.79（-2.76%）</strong>；VIX <strong>35.89（+26.2%）</strong>，盘中一度触及 40，为 2025 年 4 月以来最高；标普500的 RSI 降至 30 以下，进入超卖区。周线：道指 -8.02%、标普 -8.61%、纳指 -10.02%，道指与纳指为 2020 年 3 月疫情冲击以来最差周，标普为 2025 年 4 月以来最差周；标普与道指双双进入修正，纳指年内转负（-2.7%）（面板脚本 Yahoo 行情；Investors.com、华尔街见闻、路透经 UDN）。</li>
+<li>周日夜盘（美东 18:00 开盘后）：标普500期货约 <strong>+1.2%–1.3%</strong>、纳指100约 <strong>+2.0%–2.1%</strong>、道指期货约 <strong>+0.6%–0.8%</strong>；周一亚洲时段早盘涨幅扩大，标普期货约 <strong>+1.5%</strong>、纳指100期货约 <strong>+2.4%–2.5%</strong>（BIT/lookonchain）；夜盘走势未必延续到日间交易（Barron's、Investors.com）。</li>
+<li>美债（周五）：10 年期 <strong>4.92%（-12bp）</strong>，2 年期 <strong>4.63%（-13bp）</strong>，30 年期 <strong>5.31%（-9bp）</strong>；10 年期全周降约 20bp。周日夜盘 10 年期约 <strong>4.95%</strong>，小幅回升（财政部每日收益率曲线；面板脚本；华尔街见闻、Investors.com）。</li>
+<li>美元：美元指数 <strong>103.81（基本持平）</strong>，仍处 19 个月高位附近；离岸人民币一度收复 6.67（面板脚本；华尔街见闻）。</li>
+<li>原油：WTI 周五 <strong>83.98 美元（+1.1%）</strong>，布伦特 1 月合约 <strong>92.57 美元（+0.6%）</strong>；周线 WTI -5.17%、布伦特 -3.41%，三连跌，11 月以来 WTI 跌 19.2%。周日夜盘：WTI <strong>82.89 美元</strong>、布伦特近月 <strong>89.38 美元</strong>（面板脚本夜盘快照）。</li>
+<li>金：COMEX 金周五 <strong>3,515.40 美元（面板脚本）</strong>，11 月合约收 3,512.30 美元（-4.61%），全周跌 9.47%，为八个月最大周跌；白银全周跌 17.31%、铜跌 9.91%。周日夜盘金 <strong>3,574.90 美元（+1.7%）</strong>（面板脚本夜盘快照）。</li>
+<li>比特币周日约 <strong>59,900 美元</strong>（World Money Roadmap）。</li>
+</ul>
+<h2>二、宏观与 Fed</h2>
+<ul>
+<li>加息定价：CME FedWatch 周五收盘后显示 12 月 8–9 日会议加息 25bp 的概率约 <strong>88.6%</strong>（不加息 11.4%，11 月 22 日查询，财联社），低于上周的约 94%–97%；但基于联邦基金期货的实时测算显示周日晚间回升至约 <strong>93%–96%</strong>（FrenzyCap），口径与时点不同，总体仍定价 12 月加息。美联储理事库克周五称加息可能延续至 12 月之后，1 月再加一次的概率约五成；摩根大通预计 2027 年还有多次加息，3 月再加的概率约 58%；沃勒重申若通胀扩散、不排除 12 月加 50bp；路透对 101 位经济学家的调查则一致预计 12 月加 25bp（TradingView/BeInCrypto、TheStreet、FrenzyCap）。高盛此前预计 12 月再加 25bp、2027 年 3 月第三次加息，首次降息推迟至 2027 年 12 月（见前日报）。</li>
+<li>财政部发行 9 天期票据，为 2008 年 7 月以来首次；美联储同期暂停储备购买操作，月末流动性缺口由超短期工具填补（华尔街见闻）。</li>
+<li>密歇根大学 11 月终值回顾（周五已报）：消费者信心 <strong>51.5</strong>（初值 51.0，10 月 48.0），一年通胀预期降至 <strong>3.7%</strong>（初值 4.3%，10 月 4.7%），五年预期 <strong>3.3%</strong>。</li>
+<li>中国三家交易所宣布下调保证金（11 月 30 日起生效），沪深同时下调交易费用；韩国周日宣布稳市措施，包括放宽每日回购上限（Investors.com）。</li>
+<li>本周数据前瞻见第六节；周三 PCE 读数准备见 11 月 22 日存档的读数表（共识：总体 PCE 环比 +0.3%/同比 +3.8%，核心环比 +0.3%/同比 +3.2%；Q3 GDP 二估 +3.5%～3.6%）。</li>
+</ul>
+<h2>三、地缘与能源</h2>
+<ul>
+<li>霍尔木兹周六再升级：英国海上贸易行动办公室通报两起袭船事件（哈萨布港附近 05:00 与 05:50 UTC），油轮遭不明抛射物击中；伊朗称油轮触雷起火（未独立核实）；胡塞武装袭击沙特主权财富基金总部，为连日袭击沙特的最新一起；卡塔尔代表团周五晚访德黑兰、与伊方谈了两小时（UKMTO、TradingCode、Tasnim 经 Haaretz；见周日周末版）。周日夜盘及周一凌晨未见新的袭船通报。</li>
+<li>但油价仍按供应过剩定价：布伦特三连跌、周线 -3.41%；IEA 预计四季度供应过剩约 <strong>170–200 万桶/日</strong>；霍尔木兹原油流量已恢复至战前水平附近，EIA 称布伦特现货 11 月 18 日已较 10 月均值 124 美元低 30 美元以上；11 月第三周过境船只减少 15%，Rystad 称 11 月前两周中东石油出口约 1,300 万桶/日、较 10 月降约 20%（金融时报、Rystad、IEA、EIA；见周日周末版）。</li>
+<li>沙特同意协助补充日本原油储备（最多 <strong>800 万桶</strong>），并临时使用日本 1,600 万桶储油能力，此前日本参与创纪录的 IEA 储备释放（Rigzone，经 Geopolitics Unplugged）。</li>
+<li>OPEC+ <strong>11 月 29 日</strong>会议将定 2027 年产量政策；分析师预计布伦特本周在 <strong>89–96 美元</strong>区间波动（PTI、Discovery Alert）。</li>
+<li>301 调查：美国贸易代表格里尔表示，预计"很快"完成对华产能过剩 301 调查（见周日周末版）。</li>
+</ul>
+<h2>四、AI 与资本开支</h2>
+<ul>
+<li>英伟达：周五收 <strong>125.53 美元（-14.0%）</strong>，单周 <strong>-23%</strong>，为 2008 年 10 月以来最大单周跌幅；较 10 月 6 日纪录收盘价 239.24 美元跌约 48%，市值约 3.03 万亿美元，被谷歌超越、跌至美股第四；盘后反弹至 128.14 美元（+2.08%）。华尔街日报 11 月 21 日披露走私案细节：Alice Huang 为新加坡 Megaspeed 公司的公开面孔，关键操作者为一名 52 岁中国男子；董事会已拒绝黄仁勋回归；黄仁勋定于 12 月 1 日赴国会作证（华尔街见闻、Investors.com、Barron's；见周日周末版）。</li>
+<li>甲骨文：周五收盘后在 X 发帖称"已落实履行与 OpenAI 合同所需的全部资金……成为首家在本投资周期内完全获得资金的超大规模企业"，被视为周日夜盘反弹的驱动之一（Investors.com）。</li>
+<li>软银孙正义曾探讨约 <strong>1 万亿美元</strong>收购 SK 海力士，后放弃（The Information，11 月 20 日，经 World Money Roadmap）。</li>
+<li>硬件涨价：Dell、HPE、超微在签约数月后将价格上调最高 <strong>45%</strong>，因芯片与内存成本飙升——AI 开支的实际购买力被打折（金融时报，周日，经 Investors.com）。</li>
+<li>Anthropic：周五收 <strong>88.91 美元（-8.5%，美联社）</strong>，仍高于 83 美元发行价，上市首日涨幅几乎吐光；Anthropic 数学家宣称证明黎曼猜想，给出 1,700 万行 Lean 源码，Lean 社区经形式化验证表示相信证明正确（华尔街见闻）。</li>
+<li>并购：彭博周五晚报道 CrowdStrike 正洽购同业 Zscaler，消息后 Zscaler 盘后涨超 15%（Investors.com）。特斯拉周六向部分用户推送 FSD v15，马斯克承诺下月广泛发布（Investors.com）。</li>
+<li>半导体全周重挫：费城半导体指数单周 <strong>-17.13%</strong>，SMH ETF -17.8%；信息技术板块远期市盈率 16.3 倍，为 2020 年 3 月以来最低（World Money Roadmap、Investors.com；见周日周末版）。</li>
+</ul>
+<h2>五、谷物台</h2>
+<p>（CBOT 周五收盘 + 周末消息；Walk-Squawk 连续第三天缺刊）</p>
+<p>大豆/豆粕/豆油
+- 周五 CBOT 收盘：1 月大豆 <strong>1,220.75 美分（+13.25）</strong>，终结四连跌，收复 200 日均线；12 月豆粕 <strong>$341.00（+$8.70）</strong>，创三周新高；12 月豆油 <strong>59.81 美分（-0.28）</strong>，仍处 9 个月低点附近（Brownfield、CME；见周末版）。
+- 周线：大豆 -10.75 美分，豆粕 +11.20 美元；1 月大豆守住 50% 回撤位约 <strong>12.10 美元</strong>（年内低点 10.66 美元、高点 12.87 美元）（AgWeb）。
+- USDA 周五闪售：<strong>10 万吨</strong>豆粕售予西班牙（2026/27 年度）（AgWeb、Pro Farmer）。
+- 中国：截至周五已连续三日无新增对华大豆销售；10 月中国自巴西大豆进口同比 <strong>-7%</strong>，全国大豆到货总量同比 <strong>-23%</strong>（中国海关，经 Pro Farmer；DTN）。美国大豆累计出口承诺 12.08 亿蒲，同比 <strong>+80%</strong>，占 USDA 预估 70% 以上；中国占上周 150.1 万吨销售的 39%（DTN）。
+- 巴西雷亚尔跌至新低，自总统大选以来跌约 <strong>16%</strong>，巴西农户售豆意愿上升；12 月美湾大豆仍比巴西便宜约 20–24 美分，但到明年 2 月巴西将比美国便宜 1.19 美元，竞争将加剧；马托格罗斯部分地区圣诞节前即可开镰（AgWeb）。
+玉米/小麦
+- 周五 CBOT 收盘：12 月玉米 <strong>434.25 美分（-4.50）</strong>，创 4.5 个月新低，周线 -11 美分；12 月小麦 <strong>574.25 美分（-4.00）</strong>（Pro Farmer、Brownfield；见周末版）。
+- 玉米累计出口承诺 11.52 亿蒲，同比 <strong>-28%</strong>，仅占 USDA 预估约 35%；巴西玉米近月比美湾便宜 8 美分，远期美国仍占优；阿根廷玉米播种约 <strong>51%</strong>（DTN）。
+- 天气：巴西未来两周降雨偏多、至少持续到 11 月 26 日，阿根廷未来一周偏干需关注；World Weather Inc. 称未来两周巴西与巴拉圭降雨将时而放缓播种，11 月 28 日–12 月 4 日为巴拉圭、南巴西与巴伊亚田间作业较好窗口；阿根廷未来几天降雨将改善中西部与西北部土壤墒情（DTN、Pro Farmer）。
+- 阿根廷大豆播种约 <strong>30%</strong>（布宜诺斯艾利斯交易所，经 DTN）。
+- CBOT 夜盘截至发稿尚无新价（北京时间周一上午开盘）；本周谷物日程：今日 USDA 作物进展报告（本季最后两次之一），CFTC 持仓报告因感恩节推迟至 11 月 30 日（DTN）。</p>
+<h2>六、今明日程</h2>
+<p>（北京时间）</p>
+<ul>
+<li>11/23（周一）：<strong>22:45</strong> 标普全球 11 月美国制造业/服务业 PMI 初值（制造业预期 54.5，前值 54.9；服务业预期 55.6，前值 56.1）；纽约联储主席威廉姆斯讲话（北京时间周二 05:00）；盘后 HPE、安捷伦、Zoom、思佳讯等财报；USDA 作物进展报告（美东下午公布）。</li>
+<li>11/24（周二）：<strong>21:15</strong> ADP 周度就业变化（前值 2.38 万人）；<strong>23:00</strong> 谘商会 11 月消费者信心指数（预期 92.1，10 月 91.7）、里士满联储制造业指数（预期 -3，前值 -2）；盘前 Best Buy、Dollar Tree、Analog Devices，盘后 Dell、HP、Workday。</li>
+<li>11/25（周三）：<strong>21:30</strong> 10 月 PCE（预期环比 +0.3%、同比 +3.8%；核心环比 +0.3%、同比 +3.2%）、Q3 GDP 二估（预期 +3.5%～3.6%）、耐用品订单（预期 +0.5%）、初请失业金；<strong>次日 03:00</strong> 美联储褐皮书；盘前 Deere 财报。</li>
+<li>11/26（周四）：感恩节，美股、美债休市。</li>
+<li>11/27（周五）：美股提前至 <strong>次日 02:00</strong>（美东 13:00）收盘，黑五消费数据受关注，流动性偏薄。</li>
+<li>11/28（周六）：美联储官员噤声期开始；12 月 4 日 11 月非农；12 月 8–9 日 FOMC 会议；12 月 10 日 11 月 CPI。</li>
+</ul>
+<p>来源说明：收盘指数、美债、美元、金价、油价取自面板脚本（Yahoo 行情、财政部每日收益率曲线，11 月 20 日数据；周日夜盘为美东 11 月 22 日 18:00 开盘后的 Globex 初段价，面板脚本今晨 07:36 抓取）；周五收盘与周线跌幅经 Investors.com、华尔街见闻、美联社交叉验证；周日夜盘反弹与驱动取自 Barron's、Investors.com；周一亚洲早盘期货涨幅取自 BIT/lookonchain 数据；英伟达走私案细节取自华尔街日报（11 月 21 日，经 World Money Roadmap）；12 月加息概率取自财联社 11 月 22 日查询的 CME FedWatch 与 FrenzyCap 基于联邦基金期货的实时测算（两者口径与时点不同）；油价与霍尔木兹动态取自金融时报、Rystad、IEA、EIA、PTI；CBOT 收盘与谷物消息取自 Brownfield、CME、Pro Farmer、DTN、AgWeb；PANews 11/23 期华尔街早报截至发稿未见（检索仅见 11/20 期），本期未采用；Walk-Squawk Morning Wire 11/20、11/21、11/22 三期截至今晨 07:51 Gmail 核查均未到（最新仍为 11/19 期），连续第三天缺刊；Axios Markets 自 11 月 16 日后无新刊（仅 11 月 16 日一封“还在吗”提醒邮件）；TradingCode 页面仍为周五版数据（VIX 28.4、10 年期 5.05%），与已核实收盘不符，本期未采用。Gmail 已接通。</p>
+<div class="note"><p><strong>备注（主观判断，非原文）</strong></p>
+<ul>
+<li>周日夜盘的反弹更像是超卖后的技术性喘息而非趋势反转：标普期货 +1.2% 只收复了周五单日跌幅的约三分之一，纳指100期货 +2% 也只收复了周五 -5.5% 的三分之一多；甲骨文"资金已落实"的表态针对的是 AI 融资链条上最脆弱的一环，但 Dell/HPE 涨价 45% 的消息同时说明硬件通胀正在吞噬 AI 开支的实际购买力，两者对冲。</li>
+<li>金价周日夜盘反弹 1.7%，但周线 -9.5% 的背景是加息预期下的全资产去杠杆而非避险轮动；若周三 PCE 符合预期（核心环比 +0.3%），金价的反弹可能延续，反之若核心环比 +0.4% 以上，50bp 加息的说法会重新升温，金价与股指可能再遭抛压。</li>
+<li>豆系：大豆周五收复 200 日均线并守住 12.10 美元的 50% 回撤位，技术面暂时稳住，但基本面仍偏空——中国连续三日无新增采购、巴西雷亚尔新低刺激农户售豆、南美天气总体有利；12 月美湾仍有 20–24 美分价差优势，但 2 月后巴西将便宜 1.19 美元，美国的销售窗口只剩几周，短线 12.10–12.15 美元仍是多空分水岭。</li>
+<li>油价：夜盘小幅走低说明市场继续按"袭扰不封锁 + 供应过剩"定价，OPEC+ 11 月 29 日会议是下一个可能改变供应预期的节点；但霍尔木兹袭船频率已接近每日一起，误判风险仍在，油价波动可能突然放大并传导至豆油。</li>
+</ul></div></article><h2 class="sec">近几期</h2><div class="issue"><h3><span class="d">2026-11-22 · 周日</span>　美国宏观日报 2026-11-22（周日·周末版）</h3><ul><li>周末无美股交易；周五暴跌后美股年内涨幅几乎吐尽：标普500年内仅 +1%、道指 +0.2%、纳指年内 -2.7%（FactSet，经 MarketWatch）；标普500成分股中 64% 较纪录高点跌 20% 以上，信息技术板块这一比例达 87%（道琼斯市场数据）。</li><li>霍尔木兹海峡周六再升级：英方海事机构通报两起袭击油轮事件；金融时报称 11 月第三周过境船只减少 15%，Rystad 称 11 月前两周中东石油出口约 1,300 万桶/日、较 10 月降约 20%；伊朗称满足条件可两小时重开海峡，特朗普周六称要达成“永久协议”。</li></ul></div><div class="issue"><h3><span class="d">2026-11-21 · 周六</span>　美国宏观日报 2026-11-21</h3><ul><li>周五美股暴跌收官：道指 48,147.33（-1.93%，-949.73 点），五连跌，进入技术性修正（较 8 月纪录高点跌超 10%）；标普500 6,910.39（-3.70%，-265.44 点），七连跌、为 2020 年疫情暴发以来最长连跌，同样进入修正（较 10 月 6…</li><li>导火索是英伟达：路透周五美东时间 14:16 报道，SEC 执法人员正在审查英伟达潜在的会计问题（消息源为两名知情人士，审查开始时间与具体事项未定，SEC 不予置评），英伟达收盘暴跌 13.8%–14.0% 至 125.53 美元，创 52 周新低，单日市值蒸发约 4,910 亿…</li></ul></div><div class="issue"><h3><span class="d">2026-11-20 · 周五</span>　美国宏观日报 2026-11-20</h3><ul><li>周四美股虎头蛇尾：早盘受 Anthropic 上市提振走高，午后跳水，三大指数均跌超 2%——道指 49,097.06（-2.19%，-1,101.11 点），连续第四个交易日跌超 1%；标普500 7,175.83（-2.02%） 六连跌；纳指 23,879.20（-2.25%…</li><li>就业与制造业数据双双弱于预期：截至 11 月 14 日当周初请失业金 20.3 万人（预期约 19.7 万人，前值修正后 20.2 万人）；截至 11 月 7 日当周续请 176.3 万人（+7.0 万人，高于约 171 万人的预期）；11 月费城联储制造业指数 6.3（前值 2…</li></ul></div><div class="issue"><h3><span class="d">2026-11-19 · 周四</span>　美国宏观日报 2026-11-19</h3><ul><li>周三美股分化：道指 50,198.17（-1.11%，-561.25 点），连续第三个交易日跌超 1%；标普500 7,323.63（-0.23%） 五连跌；纳指 24,429.88（+0.42%） 逆势收涨；英伟达财报大超预期却收跌 $150.96（-2.89%），五日累计跌…</li><li>10 月 FOMC 会议纪要（北京时间今日凌晨 03:00 公布）：几乎所有官员认为 12 月进一步加息&quot;可能是适当的&quot;，少数人称若通胀数据令人失望，12 月可考虑加息超过 25bp；沃勒周三接受 CNBC 采访时仍主张考虑 12 月加息 50bp；CME FedWatch 显示…</li></ul></div><div class="issue"><h3><span class="d">2026-11-18 · 周三</span>　美国宏观日报 2026-11-18</h3><ul><li>周二美股四连跌：道指 50,759.42（-1.64%），标普500 7,340.53（-1.03%），纳指 24,328.38（-0.74%）；标普创 7 月以来最低收盘，纳指盘中触及 4 月以来最低；VIX 25.46（+11.1%），盘中一度冲至 27.73（面板脚本、Ch…</li><li>英伟达盘后财报大超预期：Q3 营收 1158 亿美元（预期约 1090 亿），调整后 EPS 2.68 美元（预期 2.47 美元），Q4 指引 1300 亿美元（预期约 1250 亿），盘后一度 +4%（CNBC、MLQ）。</li></ul></div><div class="issue"><h3><span class="d">2026-11-17 · 周二</span>　美国宏观日报 2026-11-17</h3><ul><li>周一美股三连跌：标普500 7,416.59（-1.92%），纳指 24,509.76（-2.49%），道指 51,608.17（-1.41%），为 6 月以来最大三日跌幅；VIX 22.91（+18.7%），盘中一度冲至 24.05（Chosun/BNN、面板脚本）。</li><li>英伟达周一再跌 4.12% 至 $156.14，费城半导体指数跌 5.3%；美国商务部出台新规，限制中国经第三国数据中心获取先进 AI 芯片，涉及新加坡、马来西亚、泰国、印尼、巴西五国（Chosun、路透）。</li></ul></div><div class="issue"><h3><span class="d">2026-11-16 · 周一</span>　美国宏观日报 2026-11-16</h3><ul><li>堪萨斯城联储主席施密德周日称，美联储在通胀问题上&quot;还有工作要做&quot;，通胀&quot;令人不安地高于 2% 目标、且方向错误&quot;；他未明确呼吁进一步加息，但称美联储有工具、也有责任应对过热的价格压力（路透，11/15）。</li><li>比特币周末跳水：周六一度跌至约 $65,020，周日凌晨一度跌破 $62,000、创三个月新低，24 小时杠杆爆仓约 $20 亿；美国现货比特币 ETF 已连续 7 个交易日净流出、累计约 $19.1 亿；周日晚回升至约 $65,140，全周跌幅约 13%、为 6 月以来最差单周…</li></ul></div><div class="archive">更早往期：2026-11-15 · 2026-11-14 · 2026-11-13 · 2026-11-12 · 2026-11-11 · 2026-11-10</div><div class="foot">内容为日报原文 · 每工作日 07:30 更新 · 往期全文见工作区存档</div></body></html>
