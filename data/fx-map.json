@@ -1,0 +1,304 @@
+{
+  "updated": "2026-11-27",
+  "source": "Yahoo Finance",
+  "rate_date": "2026-11-27",
+  "base_date_1w": "2026-11-20",
+  "base_date_1m": "2026-10-28",
+  "base_date_ytd": "2025-12-31",
+  "entries": [
+    {
+      "country_cn": "中国",
+      "country_en": "China",
+      "currency": "CNY",
+      "rate": 6.663,
+      "change_1d": -0.02,
+      "change_1w": -0.05,
+      "change_1m": -0.07,
+      "change_ytd": -4.76,
+      "map_keys": [
+        "China"
+      ]
+    },
+    {
+      "country_cn": "美国",
+      "country_en": "United States of America",
+      "currency": "DXY",
+      "rate": 103.68,
+      "change_1d": 0.01,
+      "change_1w": -0.13,
+      "change_1m": 1.46,
+      "change_ytd": 5.49,
+      "map_keys": [
+        "United States of America"
+      ],
+      "note": "美元指数"
+    },
+    {
+      "country_cn": "巴西",
+      "country_en": "Brazil",
+      "currency": "BRL",
+      "rate": 5.8219,
+      "change_1d": -1.39,
+      "change_1w": -1.02,
+      "change_1m": 8.36,
+      "change_ytd": 6.31,
+      "map_keys": [
+        "Brazil"
+      ]
+    },
+    {
+      "country_cn": "阿根廷",
+      "country_en": "Argentina",
+      "currency": "ARS",
+      "rate": 1603.0,
+      "change_1d": 0.66,
+      "change_1w": 2.82,
+      "change_1m": 4.04,
+      "change_ytd": 10.44,
+      "map_keys": [
+        "Argentina"
+      ]
+    },
+    {
+      "country_cn": "俄罗斯",
+      "country_en": "Russia",
+      "currency": "RUB",
+      "rate": 82.061,
+      "change_1d": -0.56,
+      "change_1w": -0.12,
+      "change_1m": 1.88,
+      "change_ytd": 3.23,
+      "map_keys": [
+        "Russia"
+      ]
+    },
+    {
+      "country_cn": "乌克兰",
+      "country_en": "Ukraine",
+      "currency": "UAH",
+      "rate": 43.8159,
+      "change_1d": -0.34,
+      "change_1w": 0.12,
+      "change_1m": -1.08,
+      "change_ytd": 3.9,
+      "map_keys": [
+        "Ukraine"
+      ]
+    },
+    {
+      "country_cn": "加拿大",
+      "country_en": "Canada",
+      "currency": "CAD",
+      "rate": 1.423,
+      "change_1d": 0.1,
+      "change_1w": -0.79,
+      "change_1m": 1.28,
+      "change_ytd": 3.91,
+      "map_keys": [
+        "Canada"
+      ]
+    },
+    {
+      "country_cn": "墨西哥",
+      "country_en": "Mexico",
+      "currency": "MXN",
+      "rate": 19.6331,
+      "change_1d": 0.19,
+      "change_1w": 2.84,
+      "change_1m": 5.06,
+      "change_ytd": 9.2,
+      "map_keys": [
+        "Mexico"
+      ]
+    },
+    {
+      "country_cn": "埃及",
+      "country_en": "Egypt",
+      "currency": "EGP",
+      "rate": 54.7091,
+      "change_1d": 0.96,
+      "change_1w": 1.84,
+      "change_1m": -2.71,
+      "change_ytd": 14.71,
+      "map_keys": [
+        "Egypt"
+      ]
+    },
+    {
+      "country_cn": "孟加拉",
+      "country_en": "Bangladesh",
+      "currency": "BDT",
+      "rate": 121.48,
+      "change_1d": 0.57,
+      "change_1w": 0.73,
+      "change_1m": 1.18,
+      "change_ytd": 0.55,
+      "map_keys": [
+        "Bangladesh"
+      ]
+    },
+    {
+      "country_cn": "日本",
+      "country_en": "Japan",
+      "currency": "JPY",
+      "rate": 159.14,
+      "change_1d": -0.05,
+      "change_1w": -0.35,
+      "change_1m": 0.73,
+      "change_ytd": 1.74,
+      "map_keys": [
+        "Japan"
+      ]
+    },
+    {
+      "country_cn": "泰国",
+      "country_en": "Thailand",
+      "currency": "THB",
+      "rate": 34.02,
+      "change_1d": -0.05,
+      "change_1w": 0.23,
+      "change_1m": 0.74,
+      "change_ytd": 8.17,
+      "map_keys": [
+        "Thailand"
+      ]
+    },
+    {
+      "country_cn": "巴基斯坦",
+      "country_en": "Pakistan",
+      "currency": "PKR",
+      "rate": 267.28,
+      "change_1d": -0.06,
+      "change_1w": -0.15,
+      "change_1m": -3.42,
+      "change_ytd": -4.51,
+      "map_keys": [
+        "Pakistan"
+      ]
+    },
+    {
+      "country_cn": "台湾",
+      "country_en": "Taiwan",
+      "currency": "TWD",
+      "rate": 32.956,
+      "change_1d": -0.7,
+      "change_1w": -0.21,
+      "change_1m": 1.64,
+      "change_ytd": 5.48,
+      "map_keys": [
+        "Taiwan"
+      ]
+    },
+    {
+      "country_cn": "土耳其",
+      "country_en": "Turkey",
+      "currency": "TRY",
+      "rate": 50.7264,
+      "change_1d": 0.1,
+      "change_1w": 0.32,
+      "change_1m": 1.86,
+      "change_ytd": 18.1,
+      "map_keys": [
+        "Turkey"
+      ]
+    },
+    {
+      "country_cn": "马来西亚",
+      "country_en": "Malaysia",
+      "currency": "MYR",
+      "rate": 4.115,
+      "change_1d": -0.06,
+      "change_1w": 0.1,
+      "change_1m": 0.7,
+      "change_ytd": 1.73,
+      "map_keys": [
+        "Malaysia"
+      ]
+    },
+    {
+      "country_cn": "菲律宾",
+      "country_en": "Philippines",
+      "currency": "PHP",
+      "rate": 63.663,
+      "change_1d": 0.23,
+      "change_1w": -0.12,
+      "change_1m": -0.47,
+      "change_ytd": 8.13,
+      "map_keys": [
+        "Philippines"
+      ]
+    },
+    {
+      "country_cn": "韩国",
+      "country_en": "South Korea",
+      "currency": "KRW",
+      "rate": 1340.98,
+      "change_1d": -0.15,
+      "change_1w": 0.46,
+      "change_1m": 1.07,
+      "change_ytd": -6.74,
+      "map_keys": [
+        "South Korea"
+      ]
+    },
+    {
+      "country_cn": "澳大利亚",
+      "country_en": "Australia",
+      "currency": "AUD",
+      "rate": 1.4996,
+      "change_1d": -0.61,
+      "change_1w": -0.18,
+      "change_1m": 5.43,
+      "change_ytd": 0.44,
+      "map_keys": [
+        "Australia"
+      ]
+    },
+    {
+      "country_cn": "欧盟",
+      "country_en": "European Union",
+      "currency": "EUR",
+      "rate": 0.9102,
+      "change_1d": -0.15,
+      "change_1w": -0.15,
+      "change_1m": 1.3,
+      "change_ytd": 6.92,
+      "map_keys": [
+        "Germany",
+        "France",
+        "Italy",
+        "Spain",
+        "Netherlands",
+        "Belgium",
+        "Austria",
+        "Greece",
+        "Portugal",
+        "Ireland",
+        "Finland",
+        "Slovakia",
+        "Slovenia",
+        "Estonia",
+        "Latvia",
+        "Lithuania",
+        "Luxembourg",
+        "Malta",
+        "Cyprus",
+        "Croatia",
+        "Bulgaria"
+      ]
+    },
+    {
+      "country_cn": "德国",
+      "country_en": "Germany",
+      "currency": "EUR",
+      "rate": 0.9102,
+      "change_1d": -0.15,
+      "change_1w": -0.15,
+      "change_1m": 1.3,
+      "change_ytd": 6.92,
+      "map_keys": [
+        "Germany"
+      ]
+    }
+  ]
+}
